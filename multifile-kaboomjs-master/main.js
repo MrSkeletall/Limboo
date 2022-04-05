@@ -22,6 +22,7 @@ import {k} from "./kaboom.js"
 
 
 const playerSpeed = 500;
+let hasJumped = false;
 
 let player =  add([
     //to change sprite I made an image with both sprites and it changes it as an "animation"
@@ -34,7 +35,8 @@ let player =  add([
      pos(100, 100),
      area(),
      body(),
-     state("human", ["human", "ghost"])
+     state("human", ["human", "ghost"]),
+     
 
 ]);
 
@@ -68,24 +70,30 @@ player.onStateEnter("ghost", () => {
     
     every("ghostBlock", (b) => {
         b.solid = false;
-    })
+    });
+    every("humanBlock", (b) => {
+        b.solid = true;
+    });
 })
 
 player.onStateEnter("human", () => {
     every("ghostBlock", (b) => {
         b.solid = true;
-    })
+    });
+    every("humanBlock", (b) => {
+        b.solid = false;
+    });
 
-})
+});
 
 //these run constantly when the player is in the stae
 player.onStateUpdate("human", () => {
     player.play("human")
-})
+});
 
 player.onStateUpdate("ghost", () => {
     player.play("ghost");
-})
+});
 
 
 //platforms for testing, 
@@ -106,5 +114,16 @@ add([
      solid(),
      color(127, 200, 255),
     "ghostBlock",
+
+])
+
+add([
+    rect(48,  height()),
+    pos(600, 0),
+    outline(4),
+    area(),
+    solid(),
+    color(200, 10, 10),
+   "humanBlock",
 
 ])

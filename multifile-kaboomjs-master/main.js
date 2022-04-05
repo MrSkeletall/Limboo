@@ -1,9 +1,7 @@
 import {k} from "./kaboom.js"
 
-// loadSprite("tempHuman", "../sprites/tempPlayerHuman.png")
-// loadSprite("tempGhost", "../sprites/tempPlayerGhost.png")
- //loadSprite("tempPlayer", "../sprites/tempPlayer.png");
 
+//this is the temp player sprite and it's animations
  loadSprite("tempPlayer", "../sprites/tempPlayer.png", {
     sliceX: 2,
     sliceY: 1,
@@ -53,6 +51,8 @@ let player =  add([
     player.jump();
 })
 
+
+//these change the player state, though I would like to try to get em on one button
  onKeyPress("j", () => {
     player.enterState("ghost");
 });
@@ -62,11 +62,23 @@ onKeyPress("h", () => {
 })
 
 //state machine
+
+//these run once when the player changes state
 player.onStateEnter("ghost", () => {
-    //player.play("ghost");
+    
+    every("ghostBlock", (b) => {
+        b.solid = false;
+    })
+})
+
+player.onStateEnter("human", () => {
+    every("ghostBlock", (b) => {
+        b.solid = true;
+    })
 
 })
 
+//these run constantly when the player is in the stae
 player.onStateUpdate("human", () => {
     player.play("human")
 })

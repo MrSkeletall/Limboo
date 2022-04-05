@@ -1,68 +1,98 @@
 import {k} from "./kaboom.js"
 
-k.loadSprite("tempHuman", "../sprites/tempPlayerHuman.png")
-k.loadSprite("tempGhost", "../sprites/tempPlayerGhost.png")
+// loadSprite("tempHuman", "../sprites/tempPlayerHuman.png")
+// loadSprite("tempGhost", "../sprites/tempPlayerGhost.png")
+ //loadSprite("tempPlayer", "../sprites/tempPlayer.png");
 
-let currentSprite = "tempHuman"
+ loadSprite("tempPlayer", "../sprites/tempPlayer.png", {
+    sliceX: 2,
+    sliceY: 1,
+    anims: {
+        human:{
+            from:0,
+            to:0,
+            loop:true,
+        },
+        ghost:{
+            from:1,
+            to:1,
+            loop:true,
+        },
+
+    },
+});
+
 
 const playerSpeed = 500;
 
-let player = k.add([
-    k.sprite(currentSprite),
-    //k.color(255, 0, 0),
-    k.pos(100, 100),
-    k.area(),
-    k.body(),
-    k.state("human", ["human", "ghost"])
+let player =  add([
+    //to change sprite I made an image with both sprites and it changes it as an "animation"
+     sprite("tempPlayer", {
+        anim: "human",
+
+    }),
+
+    //other components
+     pos(100, 100),
+     area(),
+     body(),
+     state("human", ["human", "ghost"])
 
 ]);
 
 //player movement
-k.onKeyDown("d", () => {
+ onKeyDown("d", () => {
     player.move(playerSpeed, 0);
 })
 
-k.onKeyDown("a", () => {
+ onKeyDown("a", () => {
     player.move(-playerSpeed, 0);
 })
 
-k.onKeyPress("space", () => {
+ onKeyPress("space", () => {
     player.jump();
 })
 
-k.onKeyPress("j", () => {
-    if(player.state == "human"){
-        player.enterState("ghost");
-    }
-    if(player.state == "ghost"){
-       player.enterState("human");
-    }
+ onKeyPress("j", () => {
+    player.enterState("ghost");
+});
+
+onKeyPress("h", () => {
+    player.enterState("human");
 })
 
 //state machine
 player.onStateEnter("ghost", () => {
-    //for some god forsaken reason, ya cant change the sprite...
-    player.sprite = player.sprite("tempGhost");
+    //player.play("ghost");
+
+})
+
+player.onStateUpdate("human", () => {
+    player.play("human")
+})
+
+player.onStateUpdate("ghost", () => {
+    player.play("ghost");
 })
 
 
 //platforms for testing, 
-k.add([
-    k.rect(k.width(), 48),
-    k.pos(0, k.height() - 48),
-    k.outline(4),
-    k.area(),
-    k.solid(),
-    k.color(200, 100, 255),
+add([
+    rect( width(), 48),
+    pos(0,  height() - 48),
+     outline(4),
+     area(),
+     solid(),
+     color(200, 100, 255),
 ])
 
-k.add([
-    k.rect(48, k.height()),
-    k.pos(300, 0),
-    k.outline(4),
-    k.area(),
-    k.solid(),
-    k.color(127, 200, 255),
+ add([
+     rect(48,  height()),
+     pos(300, 0),
+     outline(4),
+     area(),
+     solid(),
+     color(127, 200, 255),
     "ghostBlock",
 
 ])

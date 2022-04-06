@@ -115,7 +115,7 @@ add([
      color(127, 200, 255),
     "ghostBlock",
 
-])
+]);
 
 add([
     rect(48,  height()),
@@ -126,4 +126,4 @@ add([
     color(200, 10, 10),
    "humanBlock",
 
-])
+]);

@@ -27,12 +27,7 @@ let isJumping = false;
 const JUMP_FORCE = 900;
 let CURRENT_JUMP_FORCE = JUMP_FORCE
 
- keyPress('space', () => {
-    if (player.grounded()) {
-      isJumping = true
-      player.jump(CURRENT_JUMP_FORCE)
-    }
-  })
+ 
 
 let player =  add([
     //to change sprite I made an image with both sprites and it changes it as an "animation"
@@ -59,6 +54,13 @@ let player =  add([
     player.move(-playerSpeed, 0);
 })
 
+keyPress('space', () => {
+    if (player.grounded()) {
+      isJumping = true
+      player.jump(CURRENT_JUMP_FORCE)
+    }
+  })
+  
 //  onKeyPress("space", () => {
 //     player.jump();
 // })

@@ -22,7 +22,17 @@ import {k} from "./kaboom.js"
 
 
 const playerSpeed = 500;
-let hasJumped = false;
+let isJumping = false;
+
+const JUMP_FORCE = 900;
+let CURRENT_JUMP_FORCE = JUMP_FORCE
+
+ keyPress('space', () => {
+    if (player.grounded()) {
+      isJumping = true
+      player.jump(CURRENT_JUMP_FORCE)
+    }
+  })
 
 let player =  add([
     //to change sprite I made an image with both sprites and it changes it as an "animation"
@@ -49,9 +59,9 @@ let player =  add([
     player.move(-playerSpeed, 0);
 })
 
- onKeyPress("space", () => {
-    player.jump();
-})
+//  onKeyPress("space", () => {
+//     player.jump();
+// })
 
 
 //these change the player state, though I would like to try to get em on one button

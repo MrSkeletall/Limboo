@@ -1,6 +1,7 @@
 import {k} from "./kaboom.js"
 
 
+
 //this is the temp player sprite and it's animations
  loadSprite("tempPlayer", "../sprites/tempPlayer.png", {
     sliceX: 2,
@@ -20,6 +21,11 @@ import {k} from "./kaboom.js"
     },
 });
 
+loadSprite("ground", "../sprites/ground.png");
+loadSprite("ghostBrick", "../sprites/ghostBrick.png");
+loadSprite("brick", "../sprites/stoneBrick.png");
+
+
 
 const playerSpeed = 500;
 let hasJumped = false;
@@ -36,6 +42,7 @@ let player =  add([
      area(),
      body(),
      state("human", ["human", "ghost"]),
+     "player",
      
 
 ]);
@@ -50,6 +57,7 @@ let player =  add([
 })
 
  onKeyPress("space", () => {
+
     player.jump();
 })
 
@@ -69,19 +77,19 @@ onKeyPress("h", () => {
 player.onStateEnter("ghost", () => {
     
     every("ghostBlock", (b) => {
-        b.solid = false;
+        b.solid = true;
     });
     every("humanBlock", (b) => {
-        b.solid = true;
+        b.solid = false;
     });
 })
 
 player.onStateEnter("human", () => {
     every("ghostBlock", (b) => {
-        b.solid = true;
+        b.solid = false;
     });
     every("humanBlock", (b) => {
-        b.solid = false;
+        b.solid = true;
     });
 
 });
@@ -97,13 +105,14 @@ player.onStateUpdate("ghost", () => {
 
 
 //platforms for testing, 
-add([
+/*add([
     rect( width(), 48),
     pos(0,  height() - 48),
      outline(4),
      area(),
      solid(),
      color(200, 100, 255),
+     "ground"
 ])
 
  add([
@@ -126,4 +135,45 @@ add([
     color(200, 10, 10),
    "humanBlock",
 
-]);
+]);*/
+
+
+
+let level1 = addLevel([
+    "                   ",
+    "                   ",
+    "                   ",
+    "          w        ",
+    "          w        ",
+    "          w        ",
+    "          w        ",
+    "          w        ",
+    "          w        ",
+    "===================",
+], {
+    width:32,
+    height:32,
+    "=": () => [
+        
+        sprite("ground"),
+        area(),
+        solid(),
+        "ground",
+
+    ],
+    "w": () => [
+        
+        sprite("brick"),
+        area(),
+        solid(),
+        "humanBlock",
+
+    ],
+    "g":() => [
+        
+        sprite("ghostBrick"),
+        area(),
+        solid(),
+        "ghostBlock",
+    ],
+});

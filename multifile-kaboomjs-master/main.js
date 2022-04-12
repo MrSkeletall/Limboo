@@ -1,5 +1,6 @@
 import {k} from "./kaboom.js"
 import {initPlayer, setPlayerCtrl, initStateMachine} from "./player.js"
+import {levels, levelData} from "./levels.js"
 
 
 //this is the temp player sprite and it's animations
@@ -21,6 +22,11 @@ import {initPlayer, setPlayerCtrl, initStateMachine} from "./player.js"
     },
 });
 
+loadSprite("ground", "../sprites/ground.png");
+loadSprite("ghostBrick", "../sprites/ghostBrick.png");
+loadSprite("brick", "../sprites/stoneBrick.png");
+
+
 
 const playerSpeed = 500;
 let isJumping = false;
@@ -40,34 +46,6 @@ onLoad(() => {
 
 
 
-//platforms for testing, 
-add([
-    rect( width(), 48),
-    pos(0,  height() - 48),
-     outline(4),
-     area(),
-     solid(),
-     color(200, 100, 255),
-])
 
- add([
-     rect(48,  height()),
-     pos(300, 0),
-     outline(4),
-     area(),
-     solid(),
-     color(127, 200, 255),
-    "ghostBlock",
-
-]);
-
-add([
-    rect(48,  height()),
-    pos(600, 0),
-    outline(4),
-    area(),
-    solid(),
-    color(200, 10, 10),
-   "humanBlock",
-
-]);
+//the add level function takes in an array of strings, and an object that has kaboom components
+let level = addLevel(levels.level_1, levelData);

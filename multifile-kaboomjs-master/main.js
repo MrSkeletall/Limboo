@@ -1,5 +1,5 @@
 import {k} from "./kaboom.js"
-
+import {levels, levelData} from "./levels.js"
 
 
 //this is the temp player sprite and it's animations
@@ -104,76 +104,6 @@ player.onStateUpdate("ghost", () => {
 });
 
 
-//platforms for testing, 
-/*add([
-    rect( width(), 48),
-    pos(0,  height() - 48),
-     outline(4),
-     area(),
-     solid(),
-     color(200, 100, 255),
-     "ground"
-])
 
- add([
-     rect(48,  height()),
-     pos(300, 0),
-     outline(4),
-     area(),
-     solid(),
-     color(127, 200, 255),
-    "ghostBlock",
-
-]);
-
-add([
-    rect(48,  height()),
-    pos(600, 0),
-    outline(4),
-    area(),
-    solid(),
-    color(200, 10, 10),
-   "humanBlock",
-
-]);*/
-
-
-
-let level1 = addLevel([
-    "                   ",
-    "                   ",
-    "                   ",
-    "          w        ",
-    "          w        ",
-    "          w        ",
-    "          w        ",
-    "          w        ",
-    "          w        ",
-    "===================",
-], {
-    width:32,
-    height:32,
-    "=": () => [
-        
-        sprite("ground"),
-        area(),
-        solid(),
-        "ground",
-
-    ],
-    "w": () => [
-        
-        sprite("brick"),
-        area(),
-        solid(),
-        "humanBlock",
-
-    ],
-    "g":() => [
-        
-        sprite("ghostBrick"),
-        area(),
-        solid(),
-        "ghostBlock",
-    ],
-});
+//the add level function takes in an array of strings, and an object that has kaboom components
+let level = addLevel(levels.level_1, levelData);

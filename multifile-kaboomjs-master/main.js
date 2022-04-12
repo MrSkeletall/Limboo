@@ -1,4 +1,5 @@
 import {k} from "./kaboom.js"
+import {initPlayer, setPlayerCtrl, initStateMachine} from "./player.js"
 
 
 //this is the temp player sprite and it's animations
@@ -24,76 +25,14 @@ import {k} from "./kaboom.js"
 const playerSpeed = 500;
 let hasJumped = false;
 
-let player =  add([
-    //to change sprite I made an image with both sprites and it changes it as an "animation"
-     sprite("tempPlayer", {
-        anim: "human",
+let player = add(initPlayer(100, 100));
 
-    }),
-
-    //other components
-     pos(100, 100),
-     area(),
-     body(),
-     state("human", ["human", "ghost"]),
-     
-
-]);
-
-//player movement
- onKeyDown("d", () => {
-    player.move(playerSpeed, 0);
-})
-
- onKeyDown("a", () => {
-    player.move(-playerSpeed, 0);
-})
-
- onKeyPress("space", () => {
-    player.jump();
+onLoad(() => {
+    setPlayerCtrl(player, playerSpeed);
+    initStateMachine(player);
 })
 
 
-//these change the player state, though I would like to try to get em on one button
- onKeyPress("j", () => {
-    player.enterState("ghost");
-});
-
-onKeyPress("h", () => {
-    player.enterState("human");
-})
-
-//state machine
-
-//these run once when the player changes state
-player.onStateEnter("ghost", () => {
-    
-    every("ghostBlock", (b) => {
-        b.solid = false;
-    });
-    every("humanBlock", (b) => {
-        b.solid = true;
-    });
-})
-
-player.onStateEnter("human", () => {
-    every("ghostBlock", (b) => {
-        b.solid = true;
-    });
-    every("humanBlock", (b) => {
-        b.solid = false;
-    });
-
-});
-
-//these run constantly when the player is in the stae
-player.onStateUpdate("human", () => {
-    player.play("human")
-});
-
-player.onStateUpdate("ghost", () => {
-    player.play("ghost");
-});
 
 
 //platforms for testing, 

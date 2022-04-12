@@ -25,6 +25,7 @@ import {levels, levelData} from "./levels.js"
 loadSprite("ground", "../sprites/ground.png");
 loadSprite("ghostBrick", "../sprites/ghostBrick.png");
 loadSprite("brick", "../sprites/stoneBrick.png");
+loadSprite("flag", "../sprites/flag.png");
 
 
 
@@ -36,16 +37,42 @@ let CURRENT_JUMP_FORCE = JUMP_FORCE
 
  
 
-let player = add(initPlayer(100, 100));
+/*let player = add(initPlayer(100, 100));
 
 onLoad(() => {
     setPlayerCtrl(player, playerSpeed);
     initStateMachine(player);
-})
+})*/
 
 
 
 
 
-//the add level function takes in an array of strings, and an object that has kaboom components
-let level = addLevel(levels.level_1, levelData);
+
+scene("tutorial", () => {
+    console.log("scene loading started")
+    
+    layers(["bg", "game", "ui",], "game")
+
+    //player
+    let player = add(initPlayer(100, 100));
+    console.log("loaded player");
+    setPlayerCtrl(player, playerSpeed);
+    initStateMachine(player);
+
+    //level
+    let level = addLevel(levels.tutorial, levelData);
+    console.log("loaded level");
+    
+    
+
+    onCollide("player", "goal", () => {
+        console.log("goin to next level");
+    })
+
+
+
+});
+
+go("tutorial");
+

@@ -3,18 +3,18 @@
  
 
 export let levels = {
-    level_1: [
-        "                   ",
-        "                   ",
-        "                   ",
-        "          w        ",
-        "          w        ",
-        "          w        ",
-        "          w        ",
-        "          w        ",
-        "          w        ",
-        "          w        ",
-        "==================",
+    tutorial: [
+        "                          ",
+        "                          ",
+        "                          ",
+        "          w               ",
+        "          w               ",
+        "          w               ",
+        "          w               ",
+        "          w               ",
+        "          w               ",
+        "          w            *  ",
+        "========================= ",
     ],
 }
 
@@ -42,4 +42,12 @@ export let levelData = {
         solid(),
         "ghostBlock",
     ],
+
+    "*":() => [
+        sprite("flag"),
+        origin("center"),
+        area(),
+        //solid(),
+        "goal",
+    ]
 }

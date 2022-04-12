@@ -8,6 +8,7 @@ return [
      area(),
      body(),
      state("human", ["human", "ghost"]),
+     "player",
 ]
 
 }
@@ -38,19 +39,19 @@ onKeyPress("h", () => {
 export function initStateMachine(p){
     p.onStateEnter("ghost", () => {
     
-        every("ghostBlock", (b) => {
+        every("humanBlock", (b) => {
             b.solid = false;
         });
-        every("humanBlock", (b) => {
+        every("ghostBlock", (b) => {
             b.solid = true;
         });
     })
     
     p.onStateEnter("human", () => {
-        every("ghostBlock", (b) => {
+        every("humanBlock", (b) => {
             b.solid = true;
         });
-        every("humanBlock", (b) => {
+        every("ghostBlock", (b) => {
             b.solid = false;
         });
     

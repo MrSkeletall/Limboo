@@ -23,17 +23,21 @@ onKeyDown("d", () => {
     p.move(-speed, 0);
 })
 
- onKeyPress("space", () => {
-    p.jump();
-})
+ /*onKeyPress("space", () => {
+    p.jump(); just lazy rn
+})*/
 
  onKeyPress("j", () => {
     p.enterState("ghost");
 });
 
-onKeyPress("h", () => {
+onKeyPress("k", () => {
     p.enterState("human");
 })
+
+
+
+
 }
 
 export function initStateMachine(p){

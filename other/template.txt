@@ -1,13 +1,13 @@
 --so this here is a template to set up levels faster--
 
 
-scene("|level name goes here|", () => {
+scene("levelNameGoHere", () => {
     console.log("scene loading started")
     
     layers(["bg", "game", "ui",], "game")
 
     //player
-    let player = add(initPlayer(|Xpos|, |yPos|));
+    let player = add(initPlayer(yPos, xPos));
     console.log("loaded player");
     setPlayerCtrl(player, playerSpeed);
     initStateMachine(player);
@@ -20,7 +20,7 @@ scene("|level name goes here|", () => {
 
     onCollide("player", "goal", () => {
         console.log("goin to next level");
-        go("|whatever scene ya want to go to|)
+        go("somewhere")
     })
 
 

@@ -4,7 +4,7 @@ export function initPlayer(xPos, yPos){
 return [
 
      sprite("tempPlayer", {anim: "human",}),
-     pos(xPos, yPos),
+     pos(vec2(xPos, yPos)),
      area(),
      body(),
      state("human", ["human", "ghost"]),
@@ -69,4 +69,9 @@ export function initStateMachine(p){
     p.onStateUpdate("ghost", () => {
         p.play("ghost");
     });
+    p.onUpdate(() => {
+		if (p.pos.y >= 700) {
+			go("tutorial")
+		}
+	})
 }

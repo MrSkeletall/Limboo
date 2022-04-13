@@ -34,9 +34,10 @@ export let levels = {
         "                               ",
         "                               ",
         "                               ",
-        "                               ",
         "               www              ",
         "               www              ",
+        "                w              ",
+        "                w              ",
         "                w              ",
         "                w              ",
         "                w              ",
@@ -45,6 +46,28 @@ export let levels = {
         "                w              ",
         "                w           *  ",
         "============    w   ===========",
+    ],
+    lev2: [
+        "xxxxxxxxxxxxxxxxxx             ",
+        "                 x             x",
+        "                 x             x",
+        "                 x *           x",
+        "wwwwwwwwwwwwwwwwwxggg           x",
+        "                 x         wwwwx",
+        "                 x             x",
+        "                 x             x",
+        "gggggggggggggggggx             x",
+        "                 xgggg         x",
+        "                 x             x",
+        "                 x             x",
+        "wwwwwwwwwwwwwwwwww         wwwwx",
+        "                               x",
+        "                               x",
+        "                               x",
+        "                             ggx",
+        "                               x",
+        "                               x",
+        "gggggggggggggggg         ggggggx",
     ]
 }
 
@@ -79,5 +102,10 @@ export let levelData = {
         area(),
         //solid(),
         "goal",
+    ],
+    "x": () => [
+        sprite("impasBrick"),
+        area(),
+        solid(),
     ]
 }

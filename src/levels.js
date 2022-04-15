@@ -22,7 +22,7 @@ export let levels = {
         "               ww             ",
         "               ww             ",
         "               ww             ",
-        "               ww          *  ",
+        "           e   ww          *  ",
         "==============================",
     ],
     lev1: [
@@ -68,7 +68,8 @@ export let levels = {
         "                               x",
         "                               x",
         "gggggggggggggggg         ggggggx",
-    ]
+    ],
+    lev3: [],
 }
 
 
@@ -107,5 +108,12 @@ export let levelData = {
         sprite("impasBrick"),
         area(),
         solid(),
+    ],
+    "e": () => [
+        sprite("grimReaper"),
+        area(),
+        solid(),
+        "danger",
+        "enemy",
     ]
 }

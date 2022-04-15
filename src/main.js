@@ -21,7 +21,7 @@ import {levels, levelData} from "./levels.js"
 
     },
 });
-
+loadSprite("grimReaper", "../sprites/grimReaper.png");
 loadSprite("ground", "../sprites/ground.png");
 loadSprite("ghostBrick", "../sprites/ghostBrick.png");
 loadSprite("brick", "../sprites/stoneBrick.png");
@@ -36,9 +36,11 @@ let isJumping = false;
 const JUMP_FORCE = 900;
 let CURRENT_JUMP_FORCE = JUMP_FORCE
 
+//-------------------------------FUNCTIONS---------------------------------
 
 
 
+//--------------------------------------------------LEVELS----------------------------------
 //intro
 scene("tutorial", () => {
     console.log("scene loading started")

@@ -13,6 +13,15 @@ return [
 
 }
 
+function respawn(){
+    
+    return {
+        id:"player",
+        //currentLevel: =
+
+    }
+}
+
 export function setPlayerCtrl(p, speed){
     
 onKeyDown("d", () => {
@@ -69,9 +78,9 @@ export function initStateMachine(p){
     p.onStateUpdate("ghost", () => {
         p.play("ghost");
     });
-    p.onUpdate(() => {
+    /*p.onUpdate(() => {
 		if (p.pos.y >= 700) {
 			go("tutorial")
 		}
-	})
+	})*/
 }

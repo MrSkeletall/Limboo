@@ -1,5 +1,46 @@
 
 
+//enemy "AI" component
+function enemyMove(speed){
+    return {
+        id:"enemyMove",
+
+        require: [ "pos", "area", "scale" ],
+
+        add(){
+            this.onCollide("player", (player) => {
+                destroy(player)
+            });
+
+            this.onCollide("humanBlock" || "ghostBlock" || "bounds", (obj, col) => {
+                if (col.isLeft() || col.isRight()) {
+					speed = -speed;
+                    //this.scale = (-1, -1)
+				}
+                
+            });
+            this.onCollide("ghostBlock", (obj, col) => {
+                if (col.isLeft() || col.isRight()) {
+					speed = -speed;
+				}
+            });
+            this.onCollide("bounds", () => {
+                speed = -speed;
+            });
+
+        },
+
+        update(){
+            
+            this.move(speed, 0);
+        },
+
+        checkCollision(){
+            
+            
+        }
+    }
+}
  
 
 export let levels = {
@@ -22,7 +63,7 @@ export let levels = {
         "               ww             ",
         "               ww             ",
         "               ww             ",
-        "           e   ww          *  ",
+        "        |  e   ww          *  ",
         "==============================",
     ],
     lev1: [
@@ -109,11 +150,20 @@ export let levelData = {
         area(),
         solid(),
     ],
+    "|": () => [
+        area({ width: 32, height: 32}),
+        "bounds"
+    ],
     "e": () => [
         sprite("grimReaper"),
+        scale(1),
         area(),
         solid(),
+        enemyMove(100),
         "danger",
         "enemy",
-    ]
+    ],
+    
+
 }
+

@@ -1,6 +1,6 @@
 
 
-export function initPlayer(xPos, yPos){
+export function initPlayer(xPos, yPos, speed){
 return [
 
      sprite("tempPlayer", {anim: "human",}),
@@ -8,19 +8,68 @@ return [
      area(),
      body(),
      state("human", ["human", "ghost"]),
+     playerControls(speed),
      "player",
 ]
 
 }
 
-function respawn(){
-    
+function playerControls(speed){
     return {
-        id:"player",
-        //currentLevel: =
+        id:"playerControls",
+        require: [ "area", "body", "state"],
+        add(){
+            this.init();
+        },
+        init(){
+            onKeyDown("d", () => {
+                this.move(speed, 0);
+            })
+            
+             onKeyDown("a", () => {
+                this.move(-speed, 0);
+            })
+            
+             onKeyPress("j", () => {
+                this.enterState("ghost");
+            });
+            
+            onKeyPress("k", () => {
+                this.enterState("human");
+            })
 
+            this.onStateEnter("ghost", () => {
+    
+                every("humanBlock", (b) => {
+                    b.solid = false;
+                });
+                every("ghostBlock", (b) => {
+                    b.solid = true;
+                });
+            })
+            
+            this.onStateEnter("human", () => {
+                every("humanBlock", (b) => {
+                    b.solid = true;
+                });
+                every("ghostBlock", (b) => {
+                    b.solid = false;
+                });
+            
+            });
+            
+            this.onStateUpdate("human", () => {
+                this.play("human")
+            });
+            
+            this.onStateUpdate("ghost", () => {
+                this.play("ghost");
+            });
+        },
     }
 }
+
+
 
 export function setPlayerCtrl(p, speed){
     
@@ -31,10 +80,6 @@ onKeyDown("d", () => {
  onKeyDown("a", () => {
     p.move(-speed, 0);
 })
-
- /*onKeyPress("space", () => {
-    p.jump(); just lazy rn
-})*/
 
  onKeyPress("j", () => {
     p.enterState("ghost");
@@ -78,9 +123,5 @@ export function initStateMachine(p){
     p.onStateUpdate("ghost", () => {
         p.play("ghost");
     });
-    /*p.onUpdate(() => {
-		if (p.pos.y >= 700) {
-			go("tutorial")
-		}
-	})*/
+    
 }

@@ -37,28 +37,41 @@ const JUMP_FORCE = 900;
 let CURRENT_JUMP_FORCE = JUMP_FORCE
 
 //-------------------------------FUNCTIONS---------------------------------
-
+/*function initPlayerObj(){
+    player = add(initPlayer(100, 100));
+    setPlayerCtrl(player, playerSpeed);
+    initStateMachine(player);
+    onKeyPress('space', () => {
+        if (player.isGrounded()) {
+          isJumping = true
+          player.jump()
+        }
+    })
+    return player;
+}*/
 
 
 //--------------------------------------------------LEVELS----------------------------------
 //intro
+ 
+
 scene("tutorial", () => {
     console.log("scene loading started")
     
     layers(["bg", "game", "ui",], "game")
 
     //player
-    let player = add(initPlayer(100, 100));
-    console.log("loaded player");
-    setPlayerCtrl(player, playerSpeed);
-    initStateMachine(player);
-    //this is here because I got lazy
+    let player = add(initPlayer(100, 100, playerSpeed));
+
     onKeyPress('space', () => {
         if (player.isGrounded()) {
           isJumping = true
           player.jump()
         }
-      })
+    })
+    
+    //this is here because I got lazy
+   
 
     //level
     let level = addLevel(levels.tutorial, levelData);

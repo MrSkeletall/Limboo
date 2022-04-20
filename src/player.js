@@ -71,7 +71,7 @@ function playerControls(speed){
 
 
 
-export function setPlayerCtrl(p, speed){
+function setPlayerCtrl(p, speed){
     
 onKeyDown("d", () => {
     p.move(speed, 0);
@@ -94,7 +94,7 @@ onKeyPress("k", () => {
 
 }
 
-export function initStateMachine(p){
+function initStateMachine(p){
     p.onStateEnter("ghost", () => {
     
         every("humanBlock", (b) => {

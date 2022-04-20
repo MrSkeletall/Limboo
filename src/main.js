@@ -41,6 +41,7 @@ let checkpoint = "tutorial"
 //-------------------------------FUNCTIONS---------------------------------
 function playerRespawn(level){
     go(level)
+    
 }
 
 

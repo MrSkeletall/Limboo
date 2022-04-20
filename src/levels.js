@@ -12,17 +12,19 @@ function enemyMove(speed){
                 destroy(player)
             });
 
-            this.onCollide("humanBlock", (obj, col) => {
+
+            this.onCollide("humanBlock", () => {
+
                 
 					speed = -speed;
                     //this.scale = (-1, -1)
 				
                 
             });
-            this.onCollide("ghostBlock", (obj, col) => {
-                if (col.isLeft() || col.isRight()) {
+            this.onCollide("ghostBlock", () => {
+                
 					speed = -speed;
-				}
+				
             });
             this.onCollide("bounds", () => {
                 speed = -speed;

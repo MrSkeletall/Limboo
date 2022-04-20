@@ -39,6 +39,22 @@ let CURRENT_JUMP_FORCE = JUMP_FORCE
 let checkpoint = "tutorial"
 
 //-------------------------------FUNCTIONS---------------------------------
+function playerEvents(p){
+    p.onCollide("danger", ()=>{
+        destroy(p)
+        playerRespawn(checkpoint)
+    })
+    p.onExitView(()=>{
+        playerRespawn(checkpoint)
+    })
+    onKeyPress('space', () => {
+        if (p.isGrounded()) {
+          isJumping = true;
+          p.jump();
+        }
+    })
+}
+
 function playerRespawn(level){
     go(level)
     
@@ -54,20 +70,14 @@ scene("tutorial", () => {
     
     layers(["bg", "game", "ui",], "game")
 
-    //player
+    //-----------------------player------------------
     let player = add(initPlayer(100, 100, playerSpeed));
 
-    onKeyPress('space', () => {
-        if (player.isGrounded()) {
-          isJumping = true
-          player.jump()
-        }
-    })
-    player.onDestroy(() => {
-        playerRespawn(checkpoint)
-    })
+    //--------remember to add this----------
+    playerEvents(player);
     
-    //this is here because I got lazy
+    
+   
    
 
     //level
@@ -100,14 +110,11 @@ scene("tutorial", () => {
         })
     ])
     
-
+    //--------------LEVEL_END--------------
     player.onCollide("goal", ()=> {
         console.log("goin to next level");
         go("level_1");
     })
-
-
-
 
 });
 
@@ -117,18 +124,16 @@ scene("level_1", () => {
     
     layers(["bg", "game", "ui",], "game")
 
-    //player
-    let player = add(initPlayer(100, (height()-128)));
-    console.log("loaded player");
-    setPlayerCtrl(player, playerSpeed);
-    initStateMachine(player);
+    //set checkpoint if needed 
+    
 
-    onKeyPress('space', () => {
-        if (player.isGrounded()) {
-          isJumping = true
-          player.jump()
-        }
-      })
+    //player
+    let player = add(initPlayer(100, (height()-128), playerSpeed));
+    console.log("loaded player");
+    checkpoint = "level_1";
+    playerEvents(player);
+    
+    
 
     //level
     let level = addLevel(levels.lev1, levelData);
@@ -146,7 +151,7 @@ scene("level_1", () => {
         console.log("goin to next level");
         go("level_2")
     })
-
+    
 
 
 });
@@ -157,19 +162,11 @@ scene("level_2", () => {
     layers(["bg", "game", "ui",], "game")
 
     //player
-    let player = add(initPlayer(64, 64));
-    console.log("loaded player");
-    setPlayerCtrl(player, playerSpeed);
-    initStateMachine(player);
-
-    onKeyPress('space', () => {
-        if (player.isGrounded()) {
-          isJumping = true
-          player.jump()
-        }
-      })
+    let player = add(initPlayer(64, 64, playerSpeed));
+    playerEvents();
 
     //level
+    
     let level = addLevel(levels.lev2, levelData);
     
     //text

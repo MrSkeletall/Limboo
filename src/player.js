@@ -9,6 +9,7 @@ return [
      body(),
      state("human", ["human", "ghost"]),
      playerControls(speed),
+     outview(),
      "player",
 ]
 

@@ -9,7 +9,7 @@ function enemyMove(speed){
 
         add(){
             this.onCollide("player", (player) => {
-                destroy(player)
+                
             });
 
 
@@ -159,7 +159,7 @@ export let levelData = {
         sprite("grimReaper"),
         scale(1),
         area(),
-        body(),
+        solid(),
         enemyMove(100),
         "danger",
         "enemy",

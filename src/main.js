@@ -173,13 +173,44 @@ scene("level_2", () => {
 
     onCollide("player", "goal", () => {
         console.log("goin to next level");
-        go("win")
+        go("level_3")
     })
 
 
 
 });
 
+//level 3
+scene("level_3", () => {
+    
+    layers(["bg", "game", "ui",], "game")
+
+    //player
+    let player = add(initPlayer(0,0));
+    console.log("loaded player");
+    setPlayerCtrl(player, playerSpeed);
+    initStateMachine(player);
+
+    onKeyPress('space', () => {
+        if (player.isGrounded()) {
+          isJumping = true
+          player.jump()
+        }
+      })
+
+    //level
+    let level = addLevel(levels.lev3, levelData);
+    
+ 
+
+    onCollide("player", "goal", () => {
+        console.log("goin to next level");
+        go("win")
+    })
+
+
+
+});
 
 //loose 
 scene("lose", ()=> {

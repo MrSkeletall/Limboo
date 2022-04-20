@@ -1,5 +1,5 @@
 import {k} from "./kaboom.js"
-import {initPlayer, setPlayerCtrl, initStateMachine} from "./player.js"
+import {initPlayer} from "./player.js"
 import {levels, levelData} from "./levels.js"
 //change
 
@@ -36,29 +36,39 @@ let isJumping = false;
 const JUMP_FORCE = 900;
 let CURRENT_JUMP_FORCE = JUMP_FORCE
 
-//-------------------------------FUNCTIONS---------------------------------
+let checkpoint = "tutorial"
 
+//-------------------------------FUNCTIONS---------------------------------
+function playerRespawn(level){
+    go(level)
+    
+}
 
 
 //--------------------------------------------------LEVELS----------------------------------
 //intro
+ 
+
 scene("tutorial", () => {
     console.log("scene loading started")
     
     layers(["bg", "game", "ui",], "game")
 
     //player
-    let player = add(initPlayer(100, 100));
-    console.log("loaded player");
-    setPlayerCtrl(player, playerSpeed);
-    initStateMachine(player);
-    //this is here because I got lazy
+    let player = add(initPlayer(100, 100, playerSpeed));
+
     onKeyPress('space', () => {
         if (player.isGrounded()) {
           isJumping = true
           player.jump()
         }
-      })
+    })
+    player.onDestroy(() => {
+        playerRespawn(checkpoint)
+    })
+    
+    //this is here because I got lazy
+   
 
     //level
     let level = addLevel(levels.tutorial, levelData);

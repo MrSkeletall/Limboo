@@ -1,6 +1,6 @@
 
 
-//enemy "AI" component
+//enemy "AI" component cause enemy's are parts of the levels
 function enemyMove(speed){
     return {
         id:"enemyMove",
@@ -12,7 +12,9 @@ function enemyMove(speed){
                 destroy(player)
             });
 
+
             this.onCollide("humanBlock", () => {
+
                 
 					speed = -speed;
                     //this.scale = (-1, -1)
@@ -35,10 +37,7 @@ function enemyMove(speed){
             this.move(speed, 0);
         },
 
-        checkCollision(){
-            
-            
-        }
+        
     }
 }
  
@@ -110,7 +109,9 @@ export let levels = {
         "                               x",
         "gggggggggggggggg         ggggggx",
     ],
-    lev3: [],
+    lev3: [
+        
+    ],
 }
 
 
@@ -158,7 +159,7 @@ export let levelData = {
         sprite("grimReaper"),
         scale(1),
         area(),
-        solid(),
+        body(),
         enemyMove(100),
         "danger",
         "enemy",

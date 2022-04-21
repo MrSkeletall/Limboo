@@ -110,7 +110,26 @@ export let levels = {
         "gggggggggggggggg         ggggggx",
     ],
     lev3: [
-        
+        "                               ",
+        "               w*              ",
+        "                               ",
+        "         g                     ",
+        "                               ",
+        "                               ",
+        "                               ",
+        "   w                           ",
+        "          g                    ",
+        "                  w            ",
+        "                         g     ",
+        "                               ",
+        "                               ",
+        "                               ",
+        "                             w ",
+        "                     g         ",
+        "                w              ",
+        "           g                   ",
+        "     w                         ",
+        "w                              ",
     ],
 }
 

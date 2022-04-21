@@ -150,6 +150,7 @@ scene("level_1", () => {
     onCollide("player", "goal", () => {
         console.log("goin to next level");
         go("level_2")
+        console.log("this logs right after level 2")
     })
     
 
@@ -158,12 +159,12 @@ scene("level_1", () => {
 
 //level 2
 scene("level_2", () => {
-    
+    console.log("level loaded")
     layers(["bg", "game", "ui",], "game")
 
     //player
     let player = add(initPlayer(64, 64, playerSpeed));
-    playerEvents();
+    playerEvents(player);
 
     //level
     
@@ -179,7 +180,7 @@ scene("level_2", () => {
     ])
 
     onCollide("player", "goal", () => {
-        console.log("goin to next level");
+        
         go("level_3")
     })
 
@@ -195,9 +196,7 @@ scene("level_3", () => {
     //player
     let player = add(initPlayer(0,0));
     console.log("loaded player");
-    setPlayerCtrl(player, playerSpeed);
-    initStateMachine(player);
-
+    
     onKeyPress('space', () => {
         if (player.isGrounded()) {
           isJumping = true

@@ -194,15 +194,11 @@ scene("level_3", () => {
     layers(["bg", "game", "ui",], "game")
 
     //player
-    let player = add(initPlayer(0,0));
+    let player = add(initPlayer(0,0, playerSpeed));
+    playerEvents(player)
     console.log("loaded player");
     
-    onKeyPress('space', () => {
-        if (player.isGrounded()) {
-          isJumping = true
-          player.jump()
-        }
-      })
+    
 
     //level
     let level = addLevel(levels.lev3, levelData);

@@ -45,7 +45,12 @@ function playerEvents(p){
         playerRespawn(checkpoint)
     })
     p.onExitView(()=>{
-        playerRespawn(checkpoint)
+        if(p.pos.y > height()){
+         playerRespawn(checkpoint)
+        }
+        else if(p.pos.x > width() || p.pos.x < -10){
+            playerRespawn(checkpoint)
+        }
     })
     onKeyPress('space', () => {
         if (p.isGrounded()) {
@@ -68,7 +73,7 @@ function playerRespawn(level){
 scene("tutorial", () => {
     console.log("scene loading started")
     
-    layers(["bg", "game", "ui",], "game")
+    //layers(["bg", "game", "ui",], "game")
 
     //-----------------------player------------------
     let player = add(initPlayer(100, 100, playerSpeed));
@@ -122,7 +127,7 @@ scene("tutorial", () => {
 scene("level_1", () => {
     console.log("scene loading started")
     
-    layers(["bg", "game", "ui",], "game")
+    //layers(["bg", "game", "ui",], "game")
 
     //set checkpoint if needed 
     
@@ -160,7 +165,7 @@ scene("level_1", () => {
 //level 2
 scene("level_2", () => {
     console.log("level loaded")
-    layers(["bg", "game", "ui",], "game")
+    //layers(["bg", "game", "ui",], "game")
 
     //player
     let player = add(initPlayer(64, 64, playerSpeed));
@@ -191,10 +196,11 @@ scene("level_2", () => {
 //level 3
 scene("level_3", () => {
     
-    layers(["bg", "game", "ui",], "game")
+    //layers(["bg", "game", "ui",], "game")
+    checkpoint = "level_3";
 
     //player
-    let player = add(initPlayer(0,0, playerSpeed));
+    let player = add(initPlayer(0, height() - 98, playerSpeed));
     playerEvents(player)
     console.log("loaded player");
     

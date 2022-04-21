@@ -13,19 +13,19 @@ function enemyMove(speed){
             });
 
 
-            this.onCollide("humanBlock", () => {
+            /*this.onCollide("humanBlock", () => {
 
                 
 					speed = -speed;
                     //this.scale = (-1, -1)
 				
                 
-            });
-            this.onCollide("ghostBlock", () => {
+            });*/
+            /*this.onCollide("ghostBlock", () => {
                 
 					speed = -speed;
 				
-            });
+            });*/
             this.onCollide("bounds", () => {
                 speed = -speed;
             });
@@ -62,7 +62,7 @@ export let levels = {
         "               ww             ",
         "               ww             ",
         "               ww             ",
-        "        |  e   ww          *  ",
+        "               ww          *  ",
         "==============================",
     ],
     lev1: [
@@ -84,7 +84,7 @@ export let levels = {
         "                w              ",
         "                w              ",
         "                w              ",
-        "                w           *  ",
+        "                w   |  e  | *  ",
         "============    w   ===========",
     ],
     lev2: [
@@ -95,7 +95,7 @@ export let levels = {
         "wwwwwwwwwwwwwwwwwxggg           x",
         "                 x         wwwwx",
         "                 x             x",
-        "                 x             x",
+        " |          e   |x             x",
         "gggggggggggggggggx             x",
         "                 xgggg         x",
         "                 x             x",
@@ -111,8 +111,8 @@ export let levels = {
     ],
     lev3: [
         "                               ",
-        "               w*              ",
-        "                               ",
+        "                *              ",
+        "                x              ",
         "         g                     ",
         "                               ",
         "                               ",
@@ -127,9 +127,10 @@ export let levels = {
         "                             w ",
         "                     g         ",
         "                w              ",
-        "           g                   ",
+        "    |e|     g                   ",
         "     w                         ",
-        "w                              ",
+        "ww                             ",
+        
     ],
 }
 

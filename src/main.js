@@ -213,12 +213,24 @@ scene("level_3", () => {
 
     onCollide("player", "goal", () => {
         console.log("goin to next level");
-        go("win")
+        go("level_4")
     })
 
 
 
 });
+
+scene("level_4", ()=> {
+    let player = add(initPlayer(0, height() - 98, playerSpeed));
+    playerEvents(player)
+
+    addLevel(levels.lev4, levelData);
+
+    onCollide("player", "goal", () => {
+        console.log("goin to next level");
+        go("win")
+    })
+})
 
 //loose 
 scene("lose", ()=> {

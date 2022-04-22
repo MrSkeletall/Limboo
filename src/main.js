@@ -38,6 +38,9 @@ let CURRENT_JUMP_FORCE = JUMP_FORCE
 
 let checkpoint = "tutorial"
 
+//time
+let gameTime = 0; 
+
 //-------------------------------FUNCTIONS---------------------------------
 function playerEvents(p){
     p.onCollide("danger", ()=>{
@@ -60,6 +63,26 @@ function playerEvents(p){
     })
 }
 
+function addTimer(){
+    return[
+        text('0'),
+        pos(width() - 100, 25),
+        scale(2),
+        layer("ui"),
+        {
+            time: gameTime,
+            
+            
+        },
+    ]
+}
+function beginTimer(t){
+    t.onUpdate(()=>{
+        t.time += dt();
+        t.text = t.time.toFixed(2);
+    });
+}
+
 function playerRespawn(level){
     go(level)
     
@@ -73,7 +96,7 @@ function playerRespawn(level){
 scene("tutorial", () => {
     console.log("scene loading started")
     
-    //layers(["bg", "game", "ui",], "game")
+    layers(["bg", "game", "ui",], "game")
 
     //-----------------------player------------------
     let player = add(initPlayer(100, 100, playerSpeed));
@@ -81,12 +104,15 @@ scene("tutorial", () => {
     //--------remember to add this----------
     playerEvents(player);
     
+    //timer
     
+   let timer = add(addTimer());
+   beginTimer(timer);
    
-   
+  
 
     //level
-    let level = addLevel(levels.tutorial, levelData);
+    const level = addLevel(levels.tutorial, levelData);
     console.log("loaded level");
     
     //text
@@ -118,6 +144,7 @@ scene("tutorial", () => {
     //--------------LEVEL_END--------------
     player.onCollide("goal", ()=> {
         console.log("goin to next level");
+        gameTime = timer.time;
         go("level_1");
     })
 
@@ -127,10 +154,13 @@ scene("tutorial", () => {
 scene("level_1", () => {
     console.log("scene loading started")
     
-    //layers(["bg", "game", "ui",], "game")
+    layers(["bg", "game", "ui",], "game")
 
     //set checkpoint if needed 
     
+    //timer
+    let timer = add(addTimer());
+    beginTimer(timer);
 
     //player
     let player = add(initPlayer(100, (height()-128), playerSpeed));

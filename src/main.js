@@ -105,9 +105,8 @@ scene("tutorial", () => {
     playerEvents(player);
     
     //timer
-    
-   let timer = add(addTimer());
-   beginTimer(timer);
+    let timer = add(addTimer());
+    beginTimer(timer);
    
   
 
@@ -197,6 +196,10 @@ scene("level_2", () => {
     console.log("level loaded")
     //layers(["bg", "game", "ui",], "game")
 
+    //timer
+    let timer = add(addTimer());
+    beginTimer(timer);
+
     //player
     let player = add(initPlayer(64, 64, playerSpeed));
     playerEvents(player);
@@ -215,7 +218,7 @@ scene("level_2", () => {
     ])
 
     onCollide("player", "goal", () => {
-        
+        gameTime = timer.time;
         go("level_3")
     })
 
@@ -234,7 +237,9 @@ scene("level_3", () => {
     playerEvents(player)
     console.log("loaded player");
     
-    
+    //timer
+    let timer = add(addTimer());
+    beginTimer(timer);
 
     //level
     let level = addLevel(levels.lev3, levelData);
@@ -243,7 +248,8 @@ scene("level_3", () => {
 
     onCollide("player", "goal", () => {
         console.log("goin to next level");
-        go("level_4")
+        gameTime = timer.time;
+        go("level_4");
     })
 
 
@@ -256,7 +262,12 @@ scene("level_4", ()=> {
 
     addLevel(levels.lev4, levelData);
 
+    //timer
+    let timer = add(addTimer());
+    beginTimer(timer);
+
     onCollide("player", "goal", () => {
+        gameTime = timer.time;
         console.log("goin to next level");
         go("win")
     })
@@ -280,12 +291,23 @@ scene("lose", ()=> {
 scene("win", ()=> {
     add([
         origin("center"),
-        pos(width()/2, height()/2),
+        pos(width()/2, 300),
         text("congrats, ya did it, the game is done... although it's not finished", {
             size:40,
             width: width(),
         })
     ])
+    add([
+        origin("center"),
+        pos(width()/2, height()/2),
+        text("Your Time is: " + gameTime.toFixed(2), {
+            size:40,
+            width: width(),
+        })
+    ])
+
+
+
     onKeyPress(() => {
         go("tutorial")
     })

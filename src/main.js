@@ -22,11 +22,11 @@ import {levels, levelData} from "./levels.js"
     },
 });
 loadSprite("grimReaper", "../sprites/grimReaper.png");
-loadSprite("ground", "../sprites/ground.png");
-loadSprite("ghostBrick", "../sprites/ghostBrick.png");
-loadSprite("brick", "../sprites/stoneBrick.png");
+loadSprite("ground", "../sprites/styleGrass.png");
+loadSprite("ghostBrick", "../sprites/styleGhostBrick.png");
+loadSprite("brick", "../sprites/styleBrick.png");
 loadSprite("flag", "../sprites/flag.png");
-loadSprite("impasBrick", "../sprites/impasBrick.png")
+loadSprite("impasBrick", "../sprites/styleImpassBrick.png")
 
 
 //player vars

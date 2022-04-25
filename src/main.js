@@ -27,6 +27,7 @@ loadSprite("ghostBrick", "../sprites/styleGhostBrick.png");
 loadSprite("brick", "../sprites/styleBrick.png");
 loadSprite("flag", "../sprites/flag.png");
 loadSprite("impasBrick", "../sprites/styleImpassBrick.png")
+loadSprite("bck", "../sprites/redBackground.jpg")
 
 
 //player vars
@@ -95,6 +96,12 @@ function playerRespawn(level){
 
 scene("tutorial", () => {
     console.log("scene loading started")
+    add([
+        layer("bg"),
+        pos(0,0),
+        sprite("bck")
+       
+    ])
     
     layers(["bg", "game", "ui",], "game")
 
@@ -152,6 +159,12 @@ scene("tutorial", () => {
 //lev1
 scene("level_1", () => {
     console.log("scene loading started")
+    add([
+        layer("bg"),
+        pos(0,0),
+        sprite("bck")
+       
+    ])
     
     layers(["bg", "game", "ui",], "game")
 
@@ -194,7 +207,14 @@ scene("level_1", () => {
 //level 2
 scene("level_2", () => {
     console.log("level loaded")
-    //layers(["bg", "game", "ui",], "game")
+    add([
+        layer("bg"),
+        pos(0,0),
+        sprite("bck")
+       
+    ])
+    
+    layers(["bg", "game", "ui",], "game")
 
     //timer
     let timer = add(addTimer());
@@ -228,8 +248,14 @@ scene("level_2", () => {
 
 //level 3
 scene("level_3", () => {
+    add([
+        layer("bg"),
+        pos(0,0),
+        sprite("bck")
+       
+    ])
     
-    //layers(["bg", "game", "ui",], "game")
+    layers(["bg", "game", "ui",], "game")
     checkpoint = "level_3";
 
     //player
@@ -257,6 +283,14 @@ scene("level_3", () => {
 });
 
 scene("level_4", ()=> {
+    add([
+        layer("bg"),
+        pos(0,0),
+        sprite("bck")
+       
+    ])
+    layers(["bg", "game", "ui",], "game")
+
     let player = add(initPlayer(0, height() - 98, playerSpeed));
     playerEvents(player)
 

@@ -4,7 +4,7 @@ import {levels, levelData} from "./levels.js"
 //change
 
 //this is the temp player sprite and it's animations
- loadSprite("tempPlayer", "../sprites/tempPlayer.png", {
+ loadSprite("tempPlayer", "../sprites/ghostManSprites.png", {
     sliceX: 2,
     sliceY: 1,
     anims: {

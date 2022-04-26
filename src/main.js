@@ -47,16 +47,17 @@ let gameTime = 0;
 //-------------------------------FUNCTIONS---------------------------------
 function playerEvents(p){
     p.onCollide("danger", ()=>{
-        destroy(p)
-        playerRespawn(checkpoint)
+        destroy(p),
+        go("lose")
+
     })
     p.onExitView(()=>{
         if(p.pos.y > height()){
-         playerRespawn(checkpoint)
-        }
+            destroy(p),
+            go("lose")        }
         else if(p.pos.x > width() || p.pos.x < -10){
-            playerRespawn(checkpoint)
-        }
+            destroy(p),
+            go("lose")        }
     })
     onKeyPress('space', () => {
         if (p.isGrounded()) {
@@ -225,6 +226,7 @@ scene("level_2", () => {
    
 
     layers(["bg", "game", "ui",], "game")
+    checkpoint = "level_2";
 
     //timer
     let timer = add(addTimer());
@@ -304,6 +306,7 @@ scene("level_4", ()=> {
    
 
     layers(["bg", "game", "ui",], "game")
+    checkpoint = "level_4";
 
     let player = add(initPlayer(0, height() - 98, playerSpeed));
     playerEvents(player)
@@ -340,9 +343,16 @@ scene("lose", ()=> {
             size:40,
         })
     ])
+    add([
+        origin("center"),
+        pos(width()/2, height()/1.5),
+    
+        text("click any key to restart", {
+            size:20,
+        })  
+    ])
     onKeyPress(() => {
-        go("tutorial")
-    })
+playerRespawn(checkpoint)    })
 })
 
 //"win"

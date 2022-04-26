@@ -21,6 +21,7 @@ import {levels, levelData} from "./levels.js"
 
     },
 });
+
 loadSprite("grimReaper", "../sprites/grimReaper.png");
 loadSprite("ground", "../sprites/styleGrass.png");
 loadSprite("ghostBrick", "../sprites/styleGhostBrick.png");
@@ -291,7 +292,7 @@ scene("lose", ()=> {
 scene("win", ()=> {
     add([
         origin("center"),
-        pos(width()/2, 300),
+        pos(width()/2, 100),
         text("congrats, ya did it, the game is done... although it's not finished", {
             size:40,
             width: width(),

@@ -28,7 +28,9 @@ loadSprite("ghostBrick", "../sprites/styleGhostBrick.png");
 loadSprite("brick", "../sprites/styleBrick.png");
 loadSprite("flag", "../sprites/flag.png");
 loadSprite("impasBrick", "../sprites/styleImpassBrick.png")
+loadSound("soundtrack", "../sprites/limboMusic.mp3")
 
+loadSprite("bck", "../sprites/redBackground.jpg")
 
 //player vars
 const playerSpeed = 500;
@@ -89,6 +91,10 @@ function playerRespawn(level){
     
 }
 
+const music = play("soundtrack", {
+    volume: 0.8,
+    loop: true
+})
 
 //--------------------------------------------------LEVELS----------------------------------
 //intro
@@ -96,7 +102,14 @@ function playerRespawn(level){
 
 scene("tutorial", () => {
     console.log("scene loading started")
-    
+    add([
+        layer("bg"),
+        pos(0,0),
+        sprite("bck")
+       
+    ])
+   
+
     layers(["bg", "game", "ui",], "game")
 
     //-----------------------player------------------
@@ -154,6 +167,14 @@ scene("tutorial", () => {
 scene("level_1", () => {
     console.log("scene loading started")
     
+    add([
+        layer("bg"),
+        pos(0,0),
+        sprite("bck")
+       
+    ])
+   
+
     layers(["bg", "game", "ui",], "game")
 
     //set checkpoint if needed 
@@ -195,7 +216,15 @@ scene("level_1", () => {
 //level 2
 scene("level_2", () => {
     console.log("level loaded")
-    //layers(["bg", "game", "ui",], "game")
+    add([
+        layer("bg"),
+        pos(0,0),
+        sprite("bck")
+       
+    ])
+   
+
+    layers(["bg", "game", "ui",], "game")
 
     //timer
     let timer = add(addTimer());
@@ -230,7 +259,15 @@ scene("level_2", () => {
 //level 3
 scene("level_3", () => {
     
-    //layers(["bg", "game", "ui",], "game")
+    add([
+        layer("bg"),
+        pos(0,0),
+        sprite("bck")
+       
+    ])
+   
+
+    layers(["bg", "game", "ui",], "game")
     checkpoint = "level_3";
 
     //player
@@ -258,6 +295,16 @@ scene("level_3", () => {
 });
 
 scene("level_4", ()=> {
+    add([
+        layer("bg"),
+        pos(0,0),
+        sprite("bck")
+       
+    ])
+   
+
+    layers(["bg", "game", "ui",], "game")
+
     let player = add(initPlayer(0, height() - 98, playerSpeed));
     playerEvents(player)
 
@@ -277,6 +324,16 @@ scene("level_4", ()=> {
 //loose 
 scene("lose", ()=> {
     add([
+        layer("bg"),
+        pos(0,0),
+        sprite("bck")
+       
+    ])
+   
+
+    layers(["bg", "game", "ui",], "game")
+
+    add([
         origin("center"),
         pos(width()/2, height()/2),
         text("you died", {
@@ -290,6 +347,16 @@ scene("lose", ()=> {
 
 //"win"
 scene("win", ()=> {
+    add([
+        layer("bg"),
+        pos(0,0),
+        sprite("bck")
+       
+    ])
+   
+
+    layers(["bg", "game", "ui",], "game")
+
     add([
         origin("center"),
         pos(width()/2, 100),

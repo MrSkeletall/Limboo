@@ -109,8 +109,8 @@ go("intro")    })
 scene("intro", () => {
 const ekg = play("ekg", {
 volume: 0.8,
-})  
-  add([
+}) 
+  let hospImage = add([
         layer("hospital"),
         pos(0,0),
         opacity(0.3),
@@ -120,69 +120,73 @@ volume: 0.8,
         
         sprite("hospital"),
 
-        wait(4, () => {
-            ekg.pause()
-            go("explanation")
-        })
+        
 
     ])
-                                                 
-});
-scene("explanation", () => {
-    add([
-        pos(0, 32),
-        text("Well, it appears you've been in a car crash. The doctors say you're almost dead, but not quite.", {
-            size:30,
-            width: 1000, 
-        })
+    wait(4, () => {
+        ekg.pause()
+        hospImage.destroy();
 
-    ])
-    wait(3, () => {
+        add([
+            pos(0, 32),
+            text("Well, it appears you've been in a car crash. The doctors say you're almost dead, but not quite.", {
+                size:30,
+                width: 1000, 
+            })
+
+            
+    
+        ])
+        wait(3, () => {
   
-    add([
-        pos(0, 150),
-        text("In fact, you seem to be in a state of", {
-            width: 1000, 
-
-            size:40,
-        })
-
-    ])
-})
-wait(6, () => { 
-    const music = play("soundtrack", {
-        volume: 0.8,
-        loop: true
-    })
-    
-    add([
-        pos(60, 300),
-        text("Limbo", {
-            width: 1000, 
-
-            size:80,
-        })
-
-    ])  
-}) 
-wait(9, () => { 
+            add([
+                pos(0, 150),
+                text("In fact, you seem to be in a state of", {
+                    width: 1000, 
+        
+                    size:40,
+                })
+        
+            ])
+            wait(4, () => { 
+                const music = play("soundtrack", {
+                    volume: 0.8,
+                    loop: true
+                })
+                
+                add([
+                    pos(60, 300),
+                    text("Limbo", {
+                        width: 1000, 
+            
+                        size:80,
+                    })
+            
+                ])
+                wait(1, () => { 
 
     
-    add([
-        pos(60, 500),
-        text("Press any key to begin", {
-            width: 1000, 
+                    add([
+                        pos(60, 500),
+                        text("Press any key to begin", {
+                            width: 1000, 
+                
+                            size:30,
+                        })
+                
+                    ])  
+                    onKeyPress(() => {
+                        go("tutorial")
+                    })                                 
+                    
+                })
+            })
 
-            size:30,
         })
+    })                                           
+});
 
-    ])  
-    onKeyPress(() => {
-        go("tutorial")})                                 
-        });
-}) 
 
-              
 scene("tutorial", () => {
     console.log("scene loading started")
     add([

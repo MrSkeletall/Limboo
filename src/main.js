@@ -30,16 +30,11 @@ loadSprite("flag", "../sprites/flag.png");
 loadSprite("impasBrick", "../sprites/styleImpassBrick.png");
 loadSound("soundtrack", "../sprites/limboMusic.mp3");
 loadSprite("bck", "../sprites/redBackground.jpg");
-loadSprite("car1", "../sprites/car1.gif");
-loadSprite("car2", "../sprites/car2.gif");
-loadSprite("car3", "../sprites/car3.gif");
-loadSprite("car4", "../sprites/car4.gif");
-loadSprite("car5", "../sprites/car5.gif");
+
 loadSprite("car6", "../sprites/car6.jpg");
 
-loadSprite("heartrate", "../sprites/heartrate.gif");
-loadSprite("hospital", "../sprites/hospital.gif");
-
+loadSprite("hospital", "../sprites/hospital.jpg");
+loadSound("ekg", "../sprites/ekg-sounds.mp3")
 //player vars
 const playerSpeed = 500;
 let isJumping = false;
@@ -100,48 +95,89 @@ function playerRespawn(level){
     
 }
 
-const music = play("soundtrack", {
-    volume: 0.8,
-    loop: true
-})
 
 //--------------------------------------------------LEVELS----------------------------------
 //intro
+scene("1st", () => {
+    wait(3, () => {
+go("intro")    })
+                                                 
+});
  
 scene("intro", () => {
+    play("ekg")
     add([
-        layer("crash1"),
+        layer("hospital"),
         pos(0,0),
-        sprite("car1")
-       
+        opacity(0.3),
+        sprite("hospital"),
+        
+        shake(200),
+        
+        sprite("hospital"),
+
+        wait(8, () => {
+            go("explanation")
+        })
+
     ])
-   
-                    wait(3, () => {
-                        add([
-                            layer("crash2"),
-                            pos(0,0),
-                            sprite("car3")
-                           
-                        ])    } )
                                                  
 });
-scene("intro2", () => {
+scene("explanation", () => {
     add([
-        layer("wreck"),
-        pos(0,0),
-        sprite("car1")
-       
+        pos(0, 32),
+        text("Well, it appears you've been in a car crash. The doctors say you're almost dead, but not quite.", {
+            size:30,
+            width: 1000, 
+        })
+
     ])
-   
-                    wait(3, () => {
-                        add([
-                            layer("crash2"),
-                            pos(0,0),
-                            sprite("car3")
-                           
-                        ])    } )
-                                                 
-});
+    wait(3, () => {
+  
+    add([
+        pos(0, 150),
+        text("In fact, you seem to be in a state of", {
+            width: 1000, 
+
+            size:40,
+        })
+
+    ])
+})
+wait(6, () => { 
+    const music = play("soundtrack", {
+        volume: 0.8,
+        loop: true
+    })
+    
+    add([
+        pos(60, 300),
+        text("Limbo", {
+            width: 1000, 
+
+            size:80,
+        })
+
+    ])  
+}) 
+wait(9, () => { 
+
+    
+    add([
+        pos(60, 500),
+        text("Press any key to begin", {
+            width: 1000, 
+
+            size:30,
+        })
+
+    ])  
+    onKeyPress(() => {
+        go("tutorial")})                                 
+        });
+}) 
+
+              
 scene("tutorial", () => {
     console.log("scene loading started")
     add([
@@ -190,7 +226,7 @@ scene("tutorial", () => {
 
     add([
         pos(vec2(width()/2 + 200 , height() /2 - 200)),
-        text("At the moment, All ya gotta do is get to that flag but it seems theres a comically tall wall in the way", {
+        text("If you want to survive, you'll have to walk the line between life and death to make it through to the other side. But it appears there's an obstacle in your way...", {
             size:18,
             width: width()/4
         })
@@ -239,7 +275,7 @@ scene("level_1", () => {
     
     add([
         pos(1),
-        text("Well... it seems ya got past the wall \n Heres another one. \ntake care not to fall", {
+        text("Well... it seems you got past the wall \n Heres another one. \ntake care not to fall \nWatch out! If you move offscreen without touching the flag, you'll die...", {
             size:20,
         })
     ]);
@@ -284,7 +320,7 @@ scene("level_2", () => {
     //text
     add([
         pos(16, 32),
-        text("now, ya can't just waltz through every block like that If ya get what I mean.", {
+        text("Now things are getting a bit more challenging. The grim reapers here want to take you to be dead forever. You'll have to shift quickly to maneuver around them...", {
             size:14,
             width: width()/2 - 64,
         })
@@ -432,5 +468,5 @@ scene("win", ()=> {
     })
 })
 
-go("intro");
+go("1st");
 

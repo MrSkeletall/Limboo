@@ -101,14 +101,16 @@ function playerRespawn(level){
 //--------------------------------------------------LEVELS----------------------------------
 //intro
 scene("1st", () => {
-    wait(3, () => {
+    wait(2, () => {
 go("intro")    })
                                                  
 });
  
 scene("intro", () => {
-    play("ekg")
-    add([
+const ekg = play("ekg", {
+volume: 0.8,
+})  
+  add([
         layer("hospital"),
         pos(0,0),
         opacity(0.3),
@@ -118,7 +120,8 @@ scene("intro", () => {
         
         sprite("hospital"),
 
-        wait(8, () => {
+        wait(4, () => {
+            ekg.pause()
             go("explanation")
         })
 

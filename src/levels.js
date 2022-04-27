@@ -91,7 +91,7 @@ export let levels = {
         "xxxxxxxxxxxxxxxxxx             ",
         "                 x             x",
         "                 x             x",
-        "|       e||   e| x *           x",
+        "|            e  |x *           x",
         "wwwwwwwwwwwwwwwwwxggg           x",
         "                 x         wwwwx",
         "                 x             x",
@@ -99,6 +99,7 @@ export let levels = {
         "gggggggggggggggggx             x",
         "                 xgggg         x",
         "                 x             x",
+
         "|       e||   e| x             x",
         "wwwwwwwwwwwwwwwwww         wwwwx",
         "                               x",

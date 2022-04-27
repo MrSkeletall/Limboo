@@ -3,7 +3,7 @@
 export function initPlayer(xPos, yPos, speed){
 return [
 
-     sprite("tempPlayer", {anim: "human",}),
+     sprite("player"),
      pos(vec2(xPos, yPos)),
      area(),
      body(),
@@ -11,8 +11,7 @@ return [
      playerControls(speed),
      outview(),
      "player",
-]
-
+    ]
 }
 
 function playerControls(speed){
@@ -24,10 +23,12 @@ function playerControls(speed){
         },
         init(){
             onKeyDown("d", () => {
+                this.flipX(false);
                 this.move(speed, 0);
             })
             
              onKeyDown("a", () => {
+                this.flipX(true);
                 this.move(-speed, 0);
             })
             
@@ -39,8 +40,27 @@ function playerControls(speed){
                 this.enterState("human");
             })
 
+            onKeyPress(["d", "a"], () => {
+                if(this.curAnim() != "ghost"){
+                
+                this.play("Walk")
+                }
+            })
+            
+            onKeyRelease(["a", "d"], () => {
+                if (
+                    !isKeyDown("a")
+                    && !isKeyDown("d")
+                    
+                ) {
+                    if(this.curAnim() != "ghost"){
+                    this.play("Idle")
+                    }
+                }
+            })
+
             this.onStateEnter("ghost", () => {
-    
+                this.play("ghost");
                 every("humanBlock", (b) => {
                     b.solid = false;
                 });
@@ -50,6 +70,7 @@ function playerControls(speed){
             })
             
             this.onStateEnter("human", () => {
+                this.play("Idle");
                 every("humanBlock", (b) => {
                     b.solid = true;
                 });
@@ -60,11 +81,11 @@ function playerControls(speed){
             });
             
             this.onStateUpdate("human", () => {
-                this.play("human")
+                
             });
             
             this.onStateUpdate("ghost", () => {
-                this.play("ghost");
+                
             });
         },
     }

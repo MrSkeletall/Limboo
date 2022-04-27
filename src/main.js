@@ -22,6 +22,8 @@ import {levels, levelData} from "./levels.js"
     },
 });
 
+loadAseprite("player", "../sprites/playerVerOne.png", "../sprites/playerVerOne.json")
+
 loadSprite("grimReaper", "../sprites/grimReaper.png");
 loadSprite("ground", "../sprites/styleGrass.png");
 loadSprite("ghostBrick", "../sprites/styleGhostBrick.png");

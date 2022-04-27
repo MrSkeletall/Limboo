@@ -1,5 +1,6 @@
-{ "frames": {
-   "playerConcept 0.aseprite": {
+{ "frames": [
+   {
+    "filename": "playerConcept 0.aseprite",
     "frame": { "x": 0, "y": 0, "w": 32, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -7,7 +8,8 @@
     "sourceSize": { "w": 32, "h": 64 },
     "duration": 100
    },
-   "playerConcept 1.aseprite": {
+   {
+    "filename": "playerConcept 1.aseprite",
     "frame": { "x": 32, "y": 0, "w": 32, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -15,7 +17,8 @@
     "sourceSize": { "w": 32, "h": 64 },
     "duration": 100
    },
-   "playerConcept 2.aseprite": {
+   {
+    "filename": "playerConcept 2.aseprite",
     "frame": { "x": 64, "y": 0, "w": 32, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -23,7 +26,8 @@
     "sourceSize": { "w": 32, "h": 64 },
     "duration": 100
    },
-   "playerConcept 3.aseprite": {
+   {
+    "filename": "playerConcept 3.aseprite",
     "frame": { "x": 96, "y": 0, "w": 32, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -31,7 +35,8 @@
     "sourceSize": { "w": 32, "h": 64 },
     "duration": 100
    },
-   "playerConcept 4.aseprite": {
+   {
+    "filename": "playerConcept 4.aseprite",
     "frame": { "x": 128, "y": 0, "w": 32, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -39,7 +44,8 @@
     "sourceSize": { "w": 32, "h": 64 },
     "duration": 100
    },
-   "playerConcept 5.aseprite": {
+   {
+    "filename": "playerConcept 5.aseprite",
     "frame": { "x": 160, "y": 0, "w": 32, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -47,7 +53,8 @@
     "sourceSize": { "w": 32, "h": 64 },
     "duration": 100
    },
-   "playerConcept 6.aseprite": {
+   {
+    "filename": "playerConcept 6.aseprite",
     "frame": { "x": 192, "y": 0, "w": 32, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -55,7 +62,8 @@
     "sourceSize": { "w": 32, "h": 64 },
     "duration": 100
    },
-   "playerConcept 7.aseprite": {
+   {
+    "filename": "playerConcept 7.aseprite",
     "frame": { "x": 224, "y": 0, "w": 32, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -63,7 +71,8 @@
     "sourceSize": { "w": 32, "h": 64 },
     "duration": 100
    },
-   "playerConcept 8.aseprite": {
+   {
+    "filename": "playerConcept 8.aseprite",
     "frame": { "x": 256, "y": 0, "w": 32, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -71,7 +80,8 @@
     "sourceSize": { "w": 32, "h": 64 },
     "duration": 100
    },
-   "playerConcept 9.aseprite": {
+   {
+    "filename": "playerConcept 9.aseprite",
     "frame": { "x": 288, "y": 0, "w": 32, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -79,7 +89,8 @@
     "sourceSize": { "w": 32, "h": 64 },
     "duration": 100
    },
-   "playerConcept 10.aseprite": {
+   {
+    "filename": "playerConcept 10.aseprite",
     "frame": { "x": 320, "y": 0, "w": 32, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -87,7 +98,8 @@
     "sourceSize": { "w": 32, "h": 64 },
     "duration": 100
    },
-   "playerConcept 11.aseprite": {
+   {
+    "filename": "playerConcept 11.aseprite",
     "frame": { "x": 352, "y": 0, "w": 32, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -95,7 +107,8 @@
     "sourceSize": { "w": 32, "h": 64 },
     "duration": 100
    },
-   "playerConcept 12.aseprite": {
+   {
+    "filename": "playerConcept 12.aseprite",
     "frame": { "x": 384, "y": 0, "w": 32, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -103,7 +116,8 @@
     "sourceSize": { "w": 32, "h": 64 },
     "duration": 100
    },
-   "playerConcept 13.aseprite": {
+   {
+    "filename": "playerConcept 13.aseprite",
     "frame": { "x": 416, "y": 0, "w": 32, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -111,7 +125,8 @@
     "sourceSize": { "w": 32, "h": 64 },
     "duration": 100
    },
-   "playerConcept 14.aseprite": {
+   {
+    "filename": "playerConcept 14.aseprite",
     "frame": { "x": 448, "y": 0, "w": 32, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -119,7 +134,8 @@
     "sourceSize": { "w": 32, "h": 64 },
     "duration": 100
    },
-   "playerConcept 15.aseprite": {
+   {
+    "filename": "playerConcept 15.aseprite",
     "frame": { "x": 480, "y": 0, "w": 32, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -127,17 +143,17 @@
     "sourceSize": { "w": 32, "h": 64 },
     "duration": 100
    }
- },
+ ],
  "meta": {
   "app": "https://www.aseprite.org/",
   "version": "1.2.34.1-x64",
-  "image": "playerVerOne.png",
   "format": "RGBA8888",
   "size": { "w": 512, "h": 64 },
   "scale": "1",
   "frameTags": [
+   { "name": "Idle", "from": 0, "to": 0, "direction": "forward" },
    { "name": "Walk", "from": 1, "to": 11, "direction": "forward" },
-   { "name": "ghost", "from": 13, "to": 15, "direction": "forward" }
+   { "name": "ghost", "from": 13, "to": 15, "direction": "pingpong" }
   ],
   "layers": [
    { "name": "Layer 1", "opacity": 255, "blendMode": "normal" },

@@ -27,10 +27,18 @@ loadSprite("ground", "../sprites/styleGrass.png");
 loadSprite("ghostBrick", "../sprites/styleGhostBrick.png");
 loadSprite("brick", "../sprites/styleBrick.png");
 loadSprite("flag", "../sprites/flag.png");
-loadSprite("impasBrick", "../sprites/styleImpassBrick.png")
-loadSound("soundtrack", "../sprites/limboMusic.mp3")
+loadSprite("impasBrick", "../sprites/styleImpassBrick.png");
+loadSound("soundtrack", "../sprites/limboMusic.mp3");
+loadSprite("bck", "../sprites/redBackground.jpg");
+loadSprite("car1", "../sprites/car1.gif");
+loadSprite("car2", "../sprites/car2.gif");
+loadSprite("car3", "../sprites/car3.gif");
+loadSprite("car4", "../sprites/car4.gif");
+loadSprite("car5", "../sprites/car5.gif");
+loadSprite("car6", "../sprites/car6.jpg");
 
-loadSprite("bck", "../sprites/redBackground.jpg")
+loadSprite("heartrate", "../sprites/heartrate.gif");
+loadSprite("hospital", "../sprites/hospital.gif");
 
 //player vars
 const playerSpeed = 500;
@@ -39,7 +47,7 @@ let isJumping = false;
 const JUMP_FORCE = 900;
 let CURRENT_JUMP_FORCE = JUMP_FORCE
 
-let checkpoint = "tutorial"
+let checkpoint = "intro"
 
 //time
 let gameTime = 0; 
@@ -100,7 +108,40 @@ const music = play("soundtrack", {
 //--------------------------------------------------LEVELS----------------------------------
 //intro
  
-
+scene("intro", () => {
+    add([
+        layer("crash1"),
+        pos(0,0),
+        sprite("car1")
+       
+    ])
+   
+                    wait(3, () => {
+                        add([
+                            layer("crash2"),
+                            pos(0,0),
+                            sprite("car3")
+                           
+                        ])    } )
+                                                 
+});
+scene("intro2", () => {
+    add([
+        layer("wreck"),
+        pos(0,0),
+        sprite("car1")
+       
+    ])
+   
+                    wait(3, () => {
+                        add([
+                            layer("crash2"),
+                            pos(0,0),
+                            sprite("car3")
+                           
+                        ])    } )
+                                                 
+});
 scene("tutorial", () => {
     console.log("scene loading started")
     add([
@@ -391,5 +432,5 @@ scene("win", ()=> {
     })
 })
 
-go("tutorial");
+go("intro");
 

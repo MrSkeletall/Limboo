@@ -33,11 +33,18 @@ function playerControls(speed){
             })
             
              onKeyPress("j", () => {
-                this.enterState("ghost");
+                switch(this.state){
+                    case "human":
+                        this.enterState("ghost");
+                    break;
+                    case "ghost":
+                        this.enterState("human")
+                    break;
+                }
             });
             
             onKeyPress("k", () => {
-                this.enterState("human");
+                
             })
 
             onKeyPress(["d", "a"], () => {
@@ -58,7 +65,7 @@ function playerControls(speed){
                     }
                 }
             })
-
+            
             this.onStateEnter("ghost", () => {
                 this.play("ghost");
                 every("humanBlock", (b) => {

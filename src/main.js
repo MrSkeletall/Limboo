@@ -236,7 +236,7 @@ scene("tutorial", () => {
     add([
         pos(1),
         
-        text("Welcome to the  g a m e \n Heres some controls: \n Move: [A & D].pulse\n Jump: [Space].pulse      \n Shift States: [J & K].pulse", {
+        text("Welcome to the  g a m e \n Heres some controls: \n Move: [A & D].pulse\n Jump: [Space].pulse      \n Shift States: [J].pulse", {
             size: 20,
 
             styles: {
@@ -381,12 +381,12 @@ scene("level_3", () => {
 
     //player
     let player = add(initPlayer(0, height() - 98, playerSpeed));
-    playerEvents(player, timer);
     console.log("loaded player");
     
     //timer
     let timer = add(addTimer());
     beginTimer(timer);
+    playerEvents(player, timer);
 
     //level
     let level = addLevel(levels.lev3, levelData);
@@ -415,14 +415,16 @@ scene("level_4", ()=> {
     layers(["bg", "game", "ui",], "game")
     checkpoint = "level_4";
 
+    //timer
+    let timer = add(addTimer());
+    beginTimer(timer);
+
     let player = add(initPlayer(0, height() - 98, playerSpeed));
     playerEvents(player, timer)
 
     addLevel(levels.lev4, levelData);
 
-    //timer
-    let timer = add(addTimer());
-    beginTimer(timer);
+    
 
     onCollide("player", "goal", () => {
         gameTime = timer.time;

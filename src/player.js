@@ -43,10 +43,7 @@ function playerControls(speed){
                 }
             });
             
-            onKeyPress("k", () => {
-                
-            })
-
+            
             onKeyPress(["d", "a"], () => {
                 if(this.curAnim() != "ghost"){
                 

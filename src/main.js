@@ -140,10 +140,25 @@ volume: 0.8,
         
 
     ])
+    wait(2, () => {
+        add([
+            pos(250, 560),
+            text("Press S to skip.", {
+                size:20,
+                width: 1000, 
+            })
+
+            
+    
+        ])
+        onKeyPress("s", () => {
+            go("tutorial")
+        })          })
     wait(4, () => {
         ekg.pause();
         hospImage.destroy();
-
+                           
+        
         add([
             pos(0, 32),
             text("Well, it appears you've been in a car crash. The doctors say you're almost dead, but not quite.", {
@@ -381,12 +396,12 @@ scene("level_3", () => {
 
     //player
     let player = add(initPlayer(0, height() - 98, playerSpeed));
-    playerEvents(player, timer);
     console.log("loaded player");
     
     //timer
     let timer = add(addTimer());
     beginTimer(timer);
+    playerEvents(player, timer);
 
     //level
     let level = addLevel(levels.lev3, levelData);

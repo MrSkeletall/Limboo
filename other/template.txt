@@ -1,30 +1,46 @@
---so this here is a template to set up levels faster--
 
+//level template
 
-scene("levelNameGoHere", () => {
+scene("level_1", () => {
     console.log("scene loading started")
-    
+
+    //drawing layers
     layers(["bg", "game", "ui",], "game")
 
-    //player
-    let player = add(initPlayer(yPos, xPos));
+    //set checkpoint if needed 
+    //checkpoint = wherever ya want to go on death
+
+    //timer init
+    let timer = add(addTimer());
+    beginTimer(timer);
+
+    //player init
+    let player = add(initPlayer("xPos here", "yPos here", playerSpeed));
     console.log("loaded player");
-    setPlayerCtrl(player, playerSpeed);
-    initStateMachine(player);
+    playerEvents(player, timer);
+    
+    
 
     //level
-    let level = addLevel(levels.tutorial, levelData);
+    let level = addLevel(levels.lev1, levelData);
+    //background
+    add([
+        layer("bg"),
+        pos(0,0),
+        sprite("bck")
+       
+    ])
     console.log("loaded level");
+    //------------------additional_Jargon_If_needed (text, pictures ect)-------------------
     
+  
     
-
+    //-----------------------LEVEL_END------------------//
     onCollide("player", "goal", () => {
         console.log("goin to next level");
-        go("somewhere")
+        go("nextLevel")
     })
-
-
+    
+    
 
 });
-
-go("tutorial");

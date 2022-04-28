@@ -271,12 +271,7 @@ scene("tutorial", () => {
 scene("level_1", () => {
     console.log("scene loading started")
     
-    add([
-        layer("bg"),
-        pos(0,0),
-        sprite("bck")
-       
-    ])
+    
    
 
     layers(["bg", "game", "ui",], "game")
@@ -297,7 +292,15 @@ scene("level_1", () => {
 
     //level
     let level = addLevel(levels.lev1, levelData);
+    
+    add([
+        layer("bg"),
+        pos(0,0),
+        sprite("bck")
+       
+    ])
     console.log("loaded level");
+    //------------------additional_Jargon_If_needed
     
     add([
         pos(1),
@@ -306,12 +309,13 @@ scene("level_1", () => {
         })
     ]);
     
-
+    //-----------------------LEVEL_END------------------//
     onCollide("player", "goal", () => {
         console.log("goin to next level");
         go("level_2")
         console.log("this logs right after level 2")
     })
+    
     
 
 

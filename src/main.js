@@ -38,39 +38,51 @@ loadSprite("car6", "../sprites/car6.jpg");
 loadSprite("hospital", "../sprites/hospital.jpg");
 loadSound("ekg", "../sprites/ekg-sounds.mp3")
 //player vars
-const playerSpeed = 500;
+const playerSpeed = 430;
 let isJumping = false;
 
 const JUMP_FORCE = 900;
 let CURRENT_JUMP_FORCE = JUMP_FORCE
 
-let checkpoint = "intro"
+let checkpoint = "tutorial"
 
 //time
-let gameTime = 0; 
+let gameTime = 0;
+ 
 
 //-------------------------------FUNCTIONS---------------------------------
-function playerEvents(p){
+function playerEvents(p, t){
     p.onCollide("danger", ()=>{
+        gameTime = t.time
         destroy(p),
+        
         go("lose")
 
     })
     p.onExitView(()=>{
+        gameTime = t.time;
         if(p.pos.y > height()){
             destroy(p),
-            go("lose")        }
+            
+            
+           
+            go("lose");        }
         else if(p.pos.x > width() || p.pos.x < -10){
             destroy(p),
-            go("lose")        }
+            
+            
+            go("lose");        }
     })
     onKeyPress('space', () => {
         if (p.isGrounded()) {
           isJumping = true;
+          
           p.jump();
         }
     })
 }
+
+
 
 function addTimer(){
     return[
@@ -83,6 +95,7 @@ function addTimer(){
             
             
         },
+        "timer",
     ]
 }
 function beginTimer(t){
@@ -100,13 +113,17 @@ function playerRespawn(level){
 
 //--------------------------------------------------LEVELS----------------------------------
 //intro
-scene("1st", () => {
-    wait(2, () => {
-go("intro")    })
-                                                 
-});
- 
 scene("intro", () => {
+
+    onKeyDown("r", ()=>{
+        go("tutorial");
+        ekg.pause();
+        play("soundtrack", {
+            volume: 0.8,
+            loop: true
+        });
+    })
+    
 const ekg = play("ekg", {
 volume: 0.8,
 }) 
@@ -124,7 +141,7 @@ volume: 0.8,
 
     ])
     wait(4, () => {
-        ekg.pause()
+        ekg.pause();
         hospImage.destroy();
 
         add([
@@ -201,14 +218,14 @@ scene("tutorial", () => {
 
     //-----------------------player------------------
     let player = add(initPlayer(100, 100, playerSpeed));
-
-    //--------remember to add this----------
-    playerEvents(player);
     
     //timer
     let timer = add(addTimer());
     beginTimer(timer);
-   
+
+    //--------remember to add this----------
+    playerEvents(player, timer);
+    
   
 
     //level
@@ -274,7 +291,7 @@ scene("level_1", () => {
     let player = add(initPlayer(100, (height()-128), playerSpeed));
     console.log("loaded player");
     checkpoint = "level_1";
-    playerEvents(player);
+    playerEvents(player, timer);
     
     
 
@@ -320,7 +337,7 @@ scene("level_2", () => {
 
     //player
     let player = add(initPlayer(64, 64, playerSpeed));
-    playerEvents(player);
+    playerEvents(player, timer);
 
     //level
     
@@ -360,7 +377,7 @@ scene("level_3", () => {
 
     //player
     let player = add(initPlayer(0, height() - 98, playerSpeed));
-    playerEvents(player)
+    playerEvents(player, timer);
     console.log("loaded player");
     
     //timer
@@ -395,7 +412,7 @@ scene("level_4", ()=> {
     checkpoint = "level_4";
 
     let player = add(initPlayer(0, height() - 98, playerSpeed));
-    playerEvents(player)
+    playerEvents(player, timer)
 
     addLevel(levels.lev4, levelData);
 
@@ -412,6 +429,7 @@ scene("level_4", ()=> {
 
 //loose 
 scene("lose", ()=> {
+   
     add([
         layer("bg"),
         pos(0,0),
@@ -473,9 +491,10 @@ scene("win", ()=> {
 
 
     onKeyPress(() => {
+        gameTime = 0;
         go("tutorial")
     })
 })
 
-go("1st");
+go("intro");
 

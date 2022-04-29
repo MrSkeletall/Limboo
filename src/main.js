@@ -157,6 +157,10 @@ volume: 0.8,
         })          })
     wait(4, () => {
         ekg.pause();
+        const music = play("soundtrack", {
+            volume: 0.8,
+            loop: true
+        })
         hospImage.destroy();
                            
         

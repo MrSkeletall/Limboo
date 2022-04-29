@@ -152,6 +152,7 @@ volume: 0.8,
     
         ])
         onKeyPress("s", () => {
+            ekg.pause();
             go("tutorial")
         })          })
     wait(4, () => {

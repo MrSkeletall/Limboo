@@ -326,6 +326,8 @@ scene("level_1", () => {
         pos(1),
         text("Well... it seems you got past the wall \n Heres another one. \ntake care not to fall \nWatch out! If you move offscreen without touching the flag, you'll die...", {
             size:20,
+            width: 1000, 
+
         })
     ]);
     

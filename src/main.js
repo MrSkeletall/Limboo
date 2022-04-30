@@ -115,7 +115,7 @@ function playerRespawn(level){
 //intro
 scene("intro", () => {
 
-    onKeyDown("r", ()=>{
+    onKeyDown("s", ()=>{
         go("tutorial");
         ekg.pause();
         play("soundtrack", {
@@ -142,7 +142,7 @@ volume: 0.8,
     ])
     wait(2, () => {
         add([
-            pos(250, 560),
+            pos(10, height() - 100),
             text("Press S to skip.", {
                 size:20,
                 width: 1000, 
@@ -151,12 +151,6 @@ volume: 0.8,
             
     
         ])
-        onKeyPress("s", () => {
-            go("tutorial")
-        })          })
-    wait(4, () => {
-        ekg.pause();
-        hospImage.destroy();
                            
         
         add([
@@ -181,6 +175,7 @@ volume: 0.8,
         
             ])
             wait(4, () => { 
+                ekg.pause();
                 const music = play("soundtrack", {
                     volume: 0.8,
                     loop: true
@@ -477,7 +472,8 @@ scene("lose", ()=> {
         })  
     ])
     onKeyPress(() => {
-playerRespawn(checkpoint)    })
+        playerRespawn(checkpoint);
+    })
 })
 
 //"win"

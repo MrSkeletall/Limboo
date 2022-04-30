@@ -62,7 +62,7 @@ export let levels = {
         "               ww             ",
         "               ww             ",
         "               ww             ",
-        "               ww          *  ",
+        "               ww           *  ",
         "==============================",
     ],
     lev1: [
@@ -127,8 +127,8 @@ export let levels = {
         "                             w x",
         "     w                         x",
         "     w                  g      x",
-        "     w             w           x",
-        "    |e|     g                  x",
+        "     w            w            x",
+        "    |e|    g                   x",
         "     w                         x",
         "ww                             x",
         
@@ -154,6 +154,11 @@ export let levels = {
         "               gxxx     *  wwx",
         "gggggggggggggggxxxxxxxxxxxxxxx",
     ],
+    hellMaze: [
+        "                              ",
+        "                              ",
+        "wxggxxxxxxx  g    "
+    ]
 }
 
 

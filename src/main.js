@@ -112,6 +112,44 @@ function playerRespawn(level){
 
 
 //--------------------------------------------------LEVELS----------------------------------
+//title
+scene("title", () => {
+    
+    add([
+        pos(200, 32),
+        text("Limboo!", {
+            size:80,
+            width: 1000, 
+        })
+
+        
+
+    ])
+    add([
+        pos(200, 200),
+        text("A game by Will Douglas and Mateo Mijares", {
+            size:50,
+            width: 800, 
+        })
+
+        
+
+    ])  
+    let start = add([
+        pos(200, 400),
+        area(),
+        "start",
+        text("START", {
+            size:120,
+            width: 1000,
+             
+        })
+
+        
+
+    ])   
+    onClick("start", (start) => go("intro"))                                    
+});
 //intro
 scene("intro", () => {
 
@@ -524,5 +562,5 @@ scene("win", ()=> {
     })
 })
 
-go("intro");
+go("title");
 

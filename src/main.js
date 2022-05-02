@@ -137,12 +137,14 @@ scene("title", () => {
     ])  
     let start = add([
         pos(200, 400),
+        color(255, 0, 0),
         area(),
         "start",
         text("START", {
+            
             size:120,
             width: 1000,
-             
+            
         })
 
         

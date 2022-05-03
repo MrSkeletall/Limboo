@@ -516,12 +516,20 @@ scene("level_5", ()=> {
 
     addLevel(levels.lev5, levelData);
 
+    add([
+        text("im sorry about this one"),
+        pos(width()/2, 10),
+        layer("ui"),
+        origin("center"),
+        
+    ])
+
     
 
     onCollide("player", "goal", () => {
         gameTime = timer.time;
         console.log("goin to next level");
-        go("win")
+        go("pillars")
     })
 })
 
@@ -632,12 +640,13 @@ scene("pillars", () => {
     //-----------------------LEVEL_END------------------//
     onCollide("player", "goal", () => {
         console.log("goin to next level");
-        go("nextLevel")
+        go("win")
     })
     
     
 
 });
 
-go("title");
+//go("title");
+go("level_5");
 

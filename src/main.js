@@ -650,7 +650,7 @@ scene("pillars", () => {
     //-----------------------LEVEL_END------------------//
     onCollide("player", "goal", () => {
         console.log("goin to next level");
-        go("win")
+        go("level_6")
     })
     
     
@@ -675,7 +675,7 @@ scene("level_6", () => {
     playerEvents(player, timer);
     
     
-    checkpoint = "longjump"
+    checkpoint = "level_6"
     //level
     let level = addLevel(levels.lev6, levelData);
     //background
@@ -693,13 +693,13 @@ scene("level_6", () => {
     //-----------------------LEVEL_END------------------//
     onCollide("player", "goal", () => {
         console.log("goin to next level");
-        go("win")
+        go("win");
     })
     
     
 
 });
 
-go("longjump");
+go("title");
 
 

@@ -158,15 +158,20 @@ scene("intro", () => {
     let inputPromptShown = false;
 
     onKeyDown("s", ()=>{
+
+        if(inputPromptShown == false){
+            play("soundtrack", {
+                volume: 0.8,
+                loop: true
+            })
+        };
+
         go("tutorial");
         ekg.pause();
         
-        if(inputPromptShown = false){
-        play("soundtrack", {
-            volume: 0.8,
-            loop: true
-        });
-    }
+        
+       
+    
     })
     
 const ekg = play("ekg", {

@@ -105,6 +105,7 @@ function beginTimer(t){
     });
 }
 
+
 function playerRespawn(level){
     go(level)
     
@@ -114,14 +115,18 @@ function playerRespawn(level){
 //--------------------------------------------------LEVELS----------------------------------
 //intro
 scene("intro", () => {
+    let inputPromptShown = false;
 
     onKeyDown("s", ()=>{
         go("tutorial");
         ekg.pause();
+        
+        if(inputPromptShown = false){
         play("soundtrack", {
             volume: 0.8,
             loop: true
         });
+    }
     })
     
 const ekg = play("ekg", {
@@ -192,7 +197,7 @@ volume: 0.8,
                 ])
                 wait(1, () => { 
 
-    
+                    inputPromptShown = true;
                     add([
                         pos(60, 500),
                         text("Press any key to begin", {
@@ -267,6 +272,7 @@ scene("tutorial", () => {
             width: width()/4
         })
     ])
+    
     
     //--------------LEVEL_END--------------
     player.onCollide("goal", ()=> {

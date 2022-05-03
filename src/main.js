@@ -33,10 +33,11 @@ loadSprite("impasBrick", "../sprites/styleImpassBrick.png");
 loadSound("soundtrack", "../sprites/limboMusic.mp3");
 loadSprite("bck", "../sprites/redBackground.jpg");
 
-loadSprite("car6", "../sprites/car6.jpg");
 
 loadSprite("hospital", "../sprites/hospital.jpg");
-loadSound("ekg", "../sprites/ekg-sounds.mp3")
+loadSound("ekg", "../sprites/ekg-sounds.mp3");
+loadSprite("sunrise", "../sprites/sunrisehospital.jpg");
+
 //player vars
 const playerSpeed = 430;
 let isJumping = false;
@@ -570,8 +571,9 @@ scene("lose", ()=> {
 scene("win", ()=> {
     add([
         layer("bg"),
+        scale(.5),
         pos(0,0),
-        sprite("bck")
+        sprite("sunrise")
        
     ])
    
@@ -580,21 +582,29 @@ scene("win", ()=> {
 
     add([
         origin("center"),
-        pos(width()/2, 100),
-        text("congrats, ya did it, the game is done... although it's not finished", {
-            size:40,
+        pos(width()/2, 180),
+        text("YOU WIN!", {
+            size:80,
             width: width(),
         })
     ])
     add([
         origin("center"),
         pos(width()/2, height()/2),
-        text("Your Time is: " + gameTime.toFixed(2), {
+        text("Your time is: " + gameTime.toFixed(2), {
             size:40,
             width: width(),
         })
     ])
 
+    add([
+        origin("center"),
+        pos(width()/2, height()-180),
+        text("press any key to play again", {
+            size:20,
+            width: width(),
+        })
+    ])
 
 
     onKeyPress(() => {

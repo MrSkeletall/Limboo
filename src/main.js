@@ -656,7 +656,7 @@ scene("pillars", () => {
     
 
 });
-scene("longjump", () => {
+scene("level_6", () => {
     console.log("scene loading started")
 
     //drawing layers
@@ -677,7 +677,7 @@ scene("longjump", () => {
     
     checkpoint = "longjump"
     //level
-    let level = addLevel(levels.longjump, levelData);
+    let level = addLevel(levels.lev6, levelData);
     //background
     add([
         layer("bg"),

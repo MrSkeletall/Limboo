@@ -160,9 +160,9 @@ export let levels = {
         "wxggxxxxxxx  g    "
     ],
     pillars: [
-        "                              ",
-        "              *               ",
-        "             ww               ",
+        "               x              ",
+        "              *x              ",
+        "             wwx              ",
         "             ww               x",
         "     g    wwwww          wwwwgx",
         "     g       ww          w   gx",
@@ -214,8 +214,15 @@ longjump: [
         "                x             ",
         "                w             ",
         "                w           * ",
-        "                w             ",
-        
+        "                w           ==",
+        "                w        g    ",
+        "                w    bb  g    ",
+        "           b    w        g    ",
+        "     g    bb    w        g    ",
+        "|e|  g     x    w        g bbb",
+        "bbb  b     x"  
+
+
 
     ]
 

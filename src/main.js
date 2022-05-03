@@ -606,12 +606,13 @@ scene("win", ()=> {
         })
     ])
 
-
+    wait(2, () => {
+  
     onKeyPress(() => {
         gameTime = 0;
         go("tutorial")
     })
-})
+}) })
 
 scene("pillars", () => {
     console.log("scene loading started")

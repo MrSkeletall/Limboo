@@ -647,6 +647,6 @@ scene("pillars", () => {
 
 });
 
-//go("title");
-go("level_5");
+go("title");
+
 

@@ -639,5 +639,5 @@ scene("pillars", () => {
 
 });
 
-go("pillars");
+go("title");
 

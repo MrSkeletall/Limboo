@@ -130,7 +130,7 @@ export let levels = {
         "     w             w           x",
         "    |e|     g                  x",
         "     w                         x",
-        "ww                             x",
+        "www                            x",
         
     ],
     lev3: [
@@ -154,8 +154,32 @@ export let levels = {
         "               gxxx     *  wwx",
         "gggggggggggggggxxxxxxxxxxxxxxx",
     ],
-}
 
+
+lev5: [  
+        "                               ",  
+        "|                             e|",
+        "wwgggwwwgwwxxxxxxxwgggwwwwwwgww",
+        "                               ",
+
+        "|                e|     e     |",
+        "                               ",
+        "|e          |e          |   e |",
+        "xxxxxxxxx |   e|  e  |ggggggggg",
+        "                               ",
+        "|          e|e          |   e |",
+        "xxxxxxwwwwxxxxxxxxxxxx|   e   |",
+        "|        e|   e |     e       |",
+        "|                      e      |",
+        "wwwwwgggggxxxxxwwwxxxxxxxxxxxxx",
+        "                               ",
+        "                               ",
+        "xxxxxxxxxxxwwwgwwwgggwwgxxxgwww",
+        "                               ",
+        "                        *      ",
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+],
+}
 
 export let levelData = {
     width:32,

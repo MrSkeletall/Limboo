@@ -491,6 +491,35 @@ scene("level_4", ()=> {
     onCollide("player", "goal", () => {
         gameTime = timer.time;
         console.log("goin to next level");
+        go("level_5")
+    })
+})
+scene("level_5", ()=> {
+    add([
+        layer("bg"),
+        pos(0,0),
+        sprite("bck")
+       
+    ])
+   
+
+    layers(["bg", "game", "ui",], "game")
+    checkpoint = "level_5";
+
+    //timer
+    let timer = add(addTimer());
+    beginTimer(timer);
+
+    let player = add(initPlayer(98, 0, playerSpeed));
+    playerEvents(player, timer)
+
+    addLevel(levels.lev5, levelData);
+
+    
+
+    onCollide("player", "goal", () => {
+        gameTime = timer.time;
+        console.log("goin to next level");
         go("win")
     })
 })
@@ -564,5 +593,5 @@ scene("win", ()=> {
     })
 })
 
-go("title");
+go("intro");
 

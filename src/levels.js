@@ -207,7 +207,8 @@ lev5: [
         "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 ],
 
-longjump: [
+lev6: [
+        "                              ",
         "                              ",
         "                              ",
         "                              ",
@@ -216,11 +217,17 @@ longjump: [
         "                w           * ",
         "                w           ==",
         "                w        g    ",
-        "                w    bb  g    ",
-        "           b    w        g    ",
-        "     g    bb    w        g    ",
-        "|e|  g     x    w        g bbb",
-        "bbb  b     x"  
+        "                w    ww  g    ",
+        "           x    w        g    ",
+        "     w     x    w        g    ",
+        "|e|  w     x    w        g www",
+        "www  w     x    w        g    ",
+        "     w     x    w        g    ",
+        "     w   wwx    w   www  g    ",
+        "     w     x    w        g    ",
+        "     w     x    w        g    ",
+        "===  www   x    w        g    ",
+        "xxx        x    w        g    ",
 
 
 

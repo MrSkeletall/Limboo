@@ -207,10 +207,17 @@ lev5: [
         "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 ],
 
-level6: [
-    "                              ",
+longjump: [
+        "                              ",
+        "                              ",
+        "                              ",
+        "                x             ",
+        "                w             ",
+        "                w           * ",
+        "                w             ",
+        
 
-]
+    ]
 
 }
 

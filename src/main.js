@@ -482,7 +482,7 @@ scene("level_4", ()=> {
     let timer = add(addTimer());
     beginTimer(timer);
 
-    let player = add(initPlayer(0, height() - 98, playerSpeed));
+    let player = add(initPlayer(32, height() - 98, playerSpeed));
     playerEvents(player, timer)
 
     addLevel(levels.lev4, levelData);

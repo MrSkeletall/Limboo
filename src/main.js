@@ -595,5 +595,49 @@ scene("win", ()=> {
     })
 })
 
-go("intro");
+scene("pillars", () => {
+    console.log("scene loading started")
+
+    //drawing layers
+    layers(["bg", "game", "ui",], "game")
+
+    //set checkpoint if needed 
+    //checkpoint = wherever ya want to go on death
+
+    //timer init
+    let timer = add(addTimer());
+    beginTimer(timer);
+
+    //player init
+    let player = add(initPlayer(64, height() - 96, playerSpeed));
+    console.log("loaded player");
+    playerEvents(player, timer);
+    
+    
+    checkpoint = "pillars"
+    //level
+    let level = addLevel(levels.pillars, levelData);
+    //background
+    add([
+        layer("bg"),
+        pos(0,0),
+        sprite("bck")
+       
+    ])
+    console.log("loaded level");
+    //------------------additional_Jargon_If_needed (text, pictures ect)-------------------
+    
+  
+    
+    //-----------------------LEVEL_END------------------//
+    onCollide("player", "goal", () => {
+        console.log("goin to next level");
+        go("nextLevel")
+    })
+    
+    
+
+});
+
+go("pillars");
 

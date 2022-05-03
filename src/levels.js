@@ -1,4 +1,4 @@
-
+//levels are W:30 H:20 blocks 
 
 //enemy "AI" component cause enemy's are parts of the levels
 function enemyMove(speed){
@@ -62,7 +62,7 @@ export let levels = {
         "               ww             ",
         "               ww             ",
         "               ww             ",
-        "               ww          *  ",
+        "               ww           *  ",
         "==============================",
     ],
     lev1: [
@@ -116,21 +116,21 @@ export let levels = {
         "                x              ",
         "         g                     ",
         "                               ",
-        "                               ",
-        "                               ",
-        "   w                           ",
-        "          g                    x",
-        "                  w            x",
-        "                         g     x",
-        "                               x",
-        "                               x",
-        "                             w x",
-        "     w                         x",
-        "     w                  g      x",
-        "     w             w           x",
-        "    |e|     g                  x",
-        "     w                         x",
-        "www                            x",
+        "                              xx",
+        "                              xx",
+        "   w                          xx",
+        "          g                   xx",
+        "                  w           xx",
+        "                         g    xx",
+        "                              xx",
+        "                              xx",
+        "                             wxx",
+        "     w                          ",
+        "     w                  g       ",
+        "     w            w             ",
+        "    |e|    g                    ",
+        "     w                          ",
+        "ww                              ",
         
     ],
     lev3: [
@@ -154,6 +154,27 @@ export let levels = {
         "               gxxx     *  wwx",
         "gggggggggggggggxxxxxxxxxxxxxxx",
     ],
+    hellMaze: [
+        "                              ",
+        "                              ",
+        "wxggxxxxxxx  g    "
+    ],
+    pillars: [
+        "                              ",
+        "              *               ",
+        "              ww              ",
+        "              ww              ",
+        "      g    wwwww             g",
+        "      g       ww             g",
+        "    ggg       bb          bgggg",
+        "      g       bb          b   g",
+        "b     g       bb          b   g",
+        "      bb      bb     gg   b   g",
+        "       b      bb     gg   bbbbg",
+        "       b      bbgg   gg   b   g",
+        "       bgg    bb     gg  gb   g",
+    ],
+
 
 
 lev5: [  

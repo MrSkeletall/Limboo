@@ -105,6 +105,7 @@ function beginTimer(t){
     });
 }
 
+
 function playerRespawn(level){
     go(level)
     
@@ -154,14 +155,18 @@ scene("title", () => {
 });
 //intro
 scene("intro", () => {
+    let inputPromptShown = false;
 
-    onKeyDown("r", ()=>{
+    onKeyDown("s", ()=>{
         go("tutorial");
         ekg.pause();
+        
+        if(inputPromptShown = false){
         play("soundtrack", {
             volume: 0.8,
             loop: true
         });
+    }
     })
     
 const ekg = play("ekg", {
@@ -182,7 +187,7 @@ volume: 0.8,
     ])
     wait(2, () => {
         add([
-            pos(250, 560),
+            pos(10, height() - 100),
             text("Press S to skip.", {
                 size:20,
                 width: 1000, 
@@ -191,17 +196,6 @@ volume: 0.8,
             
     
         ])
-        onKeyPress("s", () => {
-            ekg.pause();
-            go("tutorial")
-        })          })
-    wait(4, () => {
-        ekg.pause();
-        const music = play("soundtrack", {
-            volume: 0.8,
-            loop: true
-        })
-        hospImage.destroy();
                            
         
         add([
@@ -226,6 +220,7 @@ volume: 0.8,
         
             ])
             wait(4, () => { 
+                ekg.pause();
                 const music = play("soundtrack", {
                     volume: 0.8,
                     loop: true
@@ -242,7 +237,7 @@ volume: 0.8,
                 ])
                 wait(1, () => { 
 
-    
+                    inputPromptShown = true;
                     add([
                         pos(60, 500),
                         text("Press any key to begin", {
@@ -317,6 +312,7 @@ scene("tutorial", () => {
             width: width()/4
         })
     ])
+    
     
     //--------------LEVEL_END--------------
     player.onCollide("goal", ()=> {
@@ -553,7 +549,8 @@ scene("lose", ()=> {
         })  
     ])
     onKeyPress(() => {
-playerRespawn(checkpoint)    })
+        playerRespawn(checkpoint);
+    })
 })
 
 //"win"

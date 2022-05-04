@@ -518,7 +518,7 @@ scene("level_5", ()=> {
     addLevel(levels.lev5, levelData);
 
     add([
-        text("im sorry about this one"),
+        text("im sorry about this one \n we needed something to fit the theme \"Bad Luck\""),
         pos(width()/2, 10),
         layer("ui"),
         origin("center"),

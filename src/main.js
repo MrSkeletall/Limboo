@@ -694,6 +694,7 @@ scene("level_6", () => {
     //-----------------------LEVEL_END------------------//
     onCollide("player", "goal", () => {
         console.log("goin to next level");
+        gameTime = timer.time;
         go("win");
     })
     
